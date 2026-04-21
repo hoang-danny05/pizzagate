@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://l4xucvmuoyfb"]
+
+[ext_resource type="PackedScene" uid="uid://c6yfbi07vw0cx" path="res://Blender/pizza_man/the_chef_v2.blend" id="1_p05t2"]
+
+[node name="the_chef_v2" unique_id=1674533174 instance=ExtResource("1_p05t2")]
+
+[node name="hat" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="0" unique_id=1469042504]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="legs" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="1" unique_id=67430073]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="shoe" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="2" unique_id=1010463413]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="torso" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="3" unique_id=2054554093]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

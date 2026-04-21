@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://pxfy54hyx0n7"]
 
-[node name="Level1" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="1_afh44"]
+
+[node name="Level1" type="Node3D" unique_id=371683048]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1948625473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9454651, 0, -0.1708374)
+use_collision = true
+size = Vector3(71.4975, 1, 64.07141)
+
+[node name="Player" parent="." unique_id=1867155522 instance=ExtResource("1_afh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.40448093)
