@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://l4bbje65tsio"]
+[gd_scene load_steps=4 format=3 uid="uid://l4bbje65tsio"]
 
 [ext_resource type="Script" uid="uid://pghq8hhodiet" path="res://Assets/characters/character_body_3d.gd" id="1_8c5hb"]
 [ext_resource type="PackedScene" uid="uid://l4xucvmuoyfb" path="res://Assets/models/the_chef_v_2.tscn" id="1_flhyt"]
@@ -7,23 +7,21 @@
 radius = 0.4736328
 height = 2.4887695
 
-[node name="Player" type="Node3D" unique_id=1867155522]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1361706802]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8c5hb")
 
-[node name="the_chef_v2" parent="CharacterBody3D" unique_id=1674533174 instance=ExtResource("1_flhyt")]
+[node name="the_chef_v2" parent="." instance=ExtResource("1_flhyt")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1661907040]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1593406, 0)
 shape = SubResource("CapsuleShape3D_xhqyh")
 
-[node name="Pivot" type="Node3D" parent="CharacterBody3D" unique_id=1027927903]
-transform = Transform3D(1, 0, 0, 0, 0.91913533, 0.3939419, 0, -0.3939419, 0.91913533, -0.090101, 1.7034314, 0.058514386)
+[node name="HPivot" type="Node3D" parent="."]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/Pivot" unique_id=1490924282]
+[node name="SpringArm3D" type="SpringArm3D" parent="HPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.91913533, 0.3939419, 0, -0.3939419, 0.91913533, -0.090101, 1.7034314, 0.058514386)
 spring_length = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Pivot/SpringArm3D" unique_id=2023145299]
+[node name="Camera3D" type="Camera3D" parent="HPivot/SpringArm3D"]
 current = true
 fov = 41.7
