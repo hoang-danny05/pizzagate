@@ -54,6 +54,9 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (h_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		#makes the body rotate
+		body.look_at(direction + position)
+		
 		velocity.x = direction.x * SPEED * sprint_modi
 		velocity.z = direction.z * SPEED * sprint_modi
 	else:
@@ -66,5 +69,3 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 	var motion: Vector2 = event.relative
 	v_pivot.rotation.x -= motion.y * mouse_sens
 	h_pivot.rotation.y -= motion.x * mouse_sens
-		
-	body.rotation.y -= motion.x * mouse_sens
