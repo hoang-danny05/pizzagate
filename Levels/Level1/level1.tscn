@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene format=3 uid="uid://pxfy54hyx0n7"]
 
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="1_afh44"]
 
@@ -17,27 +17,27 @@ sky = SubResource("Sky_afh44")
 ambient_light_source = 3
 ambient_light_color = Color(2.2639842, 2.2639842, 2.2639842, 1)
 
-[node name="Level1" type="Node3D"]
+[node name="Level1" type="Node3D" unique_id=2044228966]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=164968671]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9100466, 9.536743e-07, -0.18268776)
 use_collision = true
 size = Vector3(71.4975, 1, 64.07141)
 material = SubResource("StandardMaterial3D_afh44")
 
-[node name="Player" parent="." instance=ExtResource("1_afh44")]
+[node name="Player" parent="." unique_id=1859882902 instance=ExtResource("1_afh44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.40448093)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=227262090]
 environment = SubResource("Environment_ut2bn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.66013277, 0.75114894, 0, -0.75114894, 0.66013277, -99.69249, 21.597633, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1462679857]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 100, 0)
 light_energy = 7.928
 shadow_enabled = true
 sky_mode = 1
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1016129985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.451071, 2.0169616, 0)
 use_collision = true
 size = Vector3(3, 3, 3)

@@ -11,6 +11,7 @@ const DUB_JUMP_VELOCITY = 10
 @onready var body = $the_chef_v2
 @onready var equippedItem = $"the_chef_v2/scale metarig/Skeleton3D/BoneAttachment3D/frying_pan_FBX"
 
+var sprint_modi = 1
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
 
@@ -28,6 +29,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
 		
+	if Input. is_action_pressed("move_sprint"):
+		sprint_modi = 3
+	else: 
+		sprint_modi = 1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -49,11 +54,11 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (h_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * sprint_modi
+		velocity.z = direction.z * SPEED * sprint_modi
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED * sprint_modi)
+		velocity.z = move_toward(velocity.z, 0, SPEED * sprint_modi)
 
 	move_and_slide()
 	
