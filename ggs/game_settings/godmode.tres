@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SettingGameplayGodmode" load_steps=2 format=3 uid="uid://1gyccq37u3gk"]
+
+[ext_resource type="Script" uid="uid://drak6htjy3g7d" path="res://ggs/scripts/gameplay/godmode.gd" id="1_uoxv0"]
+
+[resource]
+resource_name = "godmode"
+script = ExtResource("1_uoxv0")
+key = "godmode"
+section = "gameplay"
+default = 0
+metadata/_custom_type_script = "uid://drak6htjy3g7d"
