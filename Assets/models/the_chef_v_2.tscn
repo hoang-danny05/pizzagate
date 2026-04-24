@@ -1,17 +1,29 @@
-[gd_scene format=3 uid="uid://l4xucvmuoyfb"]
+[gd_scene load_steps=3 format=3 uid="uid://l4xucvmuoyfb"]
 
 [ext_resource type="PackedScene" uid="uid://c6yfbi07vw0cx" path="res://Blender/pizza_man/the_chef_v2.blend" id="1_p05t2"]
+[ext_resource type="PackedScene" uid="uid://blbxclcadfei6" path="res://Assets/models/frying_pan.tscn" id="2_psc1q"]
 
-[node name="the_chef_v2" unique_id=1674533174 instance=ExtResource("1_p05t2")]
+[node name="the_chef_v2" instance=ExtResource("1_p05t2")]
 
-[node name="hat" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="0" unique_id=1469042504]
+[node name="scale metarig" parent="." index="4"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="legs" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="1" unique_id=67430073]
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="scale metarig/Skeleton3D" index="0"]
+transform = Transform3D(-0.5967848, -0.7983949, 0.08008763, 0.8024011, -0.5938066, 0.059547357, 1.4282763e-05, 0.0997992, 0.99500716, -0.6594002, 1.3060995, -0.049200106)
+bone_name = "hand.R"
+bone_idx = 125
+
+[node name="frying_pan_FBX" parent="scale metarig/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_psc1q")]
+transform = Transform3D(0.12086976, -0.08774972, 0.013801311, -0.0041610748, -0.02887323, -0.14713605, 0.08873096, 0.118179195, -0.025700223, -0.10178113, 0.8648933, 0.08973855)
+
+[node name="hat" parent="metarig/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="shoe" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="2" unique_id=1010463413]
+[node name="legs" parent="metarig/Skeleton3D" index="1"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="torso" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(1203083978) index="3" unique_id=2054554093]
+[node name="shoe" parent="metarig/Skeleton3D" index="2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="torso" parent="metarig/Skeleton3D" index="3"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

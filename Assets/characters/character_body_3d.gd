@@ -9,6 +9,7 @@ const DUB_JUMP_VELOCITY = 10
 @onready var v_pivot: Node3D = $HPivot/SpringArm3D
 @onready var h_pivot: Node3D = $HPivot
 @onready var body = $the_chef_v2
+@onready var equippedItem = $"the_chef_v2/scale metarig/Skeleton3D/BoneAttachment3D/frying_pan_FBX"
 
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
@@ -23,6 +24,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("leave_game"):
 		get_tree().quit()
+	
+	if Input.is_action_just_pressed("equip_unequip"):
+		equippedItem.visible = !equippedItem.visible
 		
 
 func _physics_process(delta: float) -> void:
