@@ -14,9 +14,12 @@ const DUB_JUMP_VELOCITY = 10
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
 
+var godmode = false
 
-func _ready():
+func _ready(): 
+	# if a player exists, they will hold the input hostage. 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	GGS.setting_applied.connect(_on_setting_applied)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -63,3 +66,17 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 	h_pivot.rotation.y -= motion.x * mouse_sens
 		
 	body.rotation.y -= motion.x * mouse_sens
+
+# Take back control when settings are hiddenw
+func _on_settings_settings_hidden() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_setting_applied(setting : GGSSetting, value : Variant):
+	# if godmode is changed
+	if (is_instance_of(setting, SettingGameplayGodmode)):
+		godmode = value
+		if value:
+			print("Armando becomes god!")
+		else:
+			print("Armando temporarily returns to mortal form")

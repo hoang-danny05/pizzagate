@@ -1,6 +1,6 @@
 @tool
 extends GGSSetting
-class_name SettingDisplayModetest
+class_name SettingDisplayMode
 ## Changes display mode between fullscreen, borderless, and windowed.
 
 ## A setting that can handle window size. Used to set the game window to the correct size after its state changes.

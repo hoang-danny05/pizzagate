@@ -1,7 +1,6 @@
 @tool
 extends GGSSetting
 class_name SettingGameplayGodmode
-signal godModeActivated
 ## Changes display mode between fullscreen, borderless, and windowed.
 
 ## A setting that can handle window size. Used to set the game window to the correct size after its state changes.
@@ -16,6 +15,6 @@ func _init() -> void:
 	section = "gameplay"
 
 
-func apply(god_mode: int) -> void:
-	print("God Mode Updated to: ", god_mode)
-	godModeActivated.emit(god_mode)
+func apply(god_mode: bool) -> void:
+	#print("God Mode Updated to: ", god_mode)
+	pass

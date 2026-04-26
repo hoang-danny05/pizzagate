@@ -1,13 +1,19 @@
 extends Control
 
+# The global settings class. 
+# Literally just controls what you do when you open and close settings.
+signal settings_hidden
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# yeah.
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_toggle")):
 		visible = ! visible;
-	pass
+		if visible:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			settings_hidden.emit()
