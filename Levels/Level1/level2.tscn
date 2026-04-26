@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://tkspvaoxssho"]
 
-[ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings.tscn" id="1_n5ysf"]
+[ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="1_n5ysf"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="2_4512p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5ysf"]
@@ -45,5 +45,3 @@ sky_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.451071, 2.0169616, 0)
 use_collision = true
 size = Vector3(3, 3, 3)
-
-[connection signal="settings_hidden" from="Settings" to="Player" method="_on_settings_settings_hidden"]

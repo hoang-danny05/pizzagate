@@ -4,7 +4,7 @@ class_name GGSPluginSettings
 ## Resource for storing and managing GGS plugin settings.
 
 ## The directory where the game setting resources are located.
-@export_dir var settings_directory: String = "res://ggs/game_settings"
+@export_dir var settings_directory: String = "res://Globals/GUI/Settings/ggs/game_settings"
 
 @export_group("Input")
 ## Text and glyphs will be shown in this layout if the connected joypad device is not recognized.
