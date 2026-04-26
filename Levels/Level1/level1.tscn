@@ -45,3 +45,5 @@ size = Vector3(3, 3, 3)
 
 [node name="Settings" parent="." instance=ExtResource("2_ut2bn")]
 visible = false
+
+[connection signal="settings_toggled" from="Settings" to="Player" method="_on_settings_settings_toggled"]

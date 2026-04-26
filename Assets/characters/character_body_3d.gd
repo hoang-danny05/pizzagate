@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("move_jump") and !has_double_jumped:
 		velocity.y = DUB_JUMP_VELOCITY
 		has_double_jumped = true
+	elif godmode and Input.is_action_just_pressed("move_jump"):
+		velocity.y = DUB_JUMP_VELOCITY
 		
 
 	# Get the input direction and handle the movement/deceleration.
@@ -68,8 +70,9 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 	body.rotation.y -= motion.x * mouse_sens
 
 # Take back control when settings are hiddenw
-func _on_settings_settings_hidden() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+func _on_settings_settings_toggled(setting_active : bool) -> void:
+	if (setting_active):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _on_setting_applied(setting : GGSSetting, value : Variant):
