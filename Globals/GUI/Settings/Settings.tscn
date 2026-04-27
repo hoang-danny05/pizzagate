@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=7 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
+[ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
+[ext_resource type="Theme" uid="uid://da3h0kv3unisv" path="res://Globals/GUI/Settings/SettingsUITheme.tres" id="2_x1nv6"]
 [ext_resource type="Script" uid="uid://bmbdl6887xhmx" path="res://Globals/GUI/Settings/quit_button.gd" id="4_n0b7a"]
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_4o7sr"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -31,18 +31,39 @@ offset_top = 55.0
 offset_right = 954.0
 offset_bottom = 494.0
 
-[node name="Label" type="Label" parent="Background/VBoxContainer"]
+[node name="Title" type="Label" parent="Background/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
 text = "Epic Ass Settings"
-label_settings = SubResource("LabelSettings_4o7sr")
+label_settings = ExtResource("2_6xrik")
 horizontal_alignment = 1
+
+[node name="Gameplay" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "Gameplay"
 
 [node name="Godmode" parent="Background/VBoxContainer" instance=ExtResource("7_qsdlf")]
 layout_mode = 2
 setting = ExtResource("5_f4jdn")
 
 [node name="Btn" parent="Background/VBoxContainer/Godmode" index="0"]
+theme = ExtResource("2_x1nv6")
 text = "Enable Lore Accurate Chef"
+
+[node name="Display" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "Display"
+
+[node name="Audio" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "Audio"
 
 [node name="Button" type="Button" parent="Background"]
 layout_mode = 0
