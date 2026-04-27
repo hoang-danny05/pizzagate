@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://imav1vvv52es"]
+
+[resource]
+line_spacing = 4.0
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
