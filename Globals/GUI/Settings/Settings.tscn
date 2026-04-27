@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=11 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
+[ext_resource type="PackedScene" uid="uid://ds06mwhee8ygm" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.tscn" id="8_ppugv"]
+[ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/audio_volume.tres" id="9_vex8i"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -61,11 +63,11 @@ theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Display"
 
-[node name="OptionList" parent="Background/VBoxContainer" instance=ExtResource("6_u3dfj")]
+[node name="DisplayMode" parent="Background/VBoxContainer" instance=ExtResource("6_u3dfj")]
 layout_mode = 2
 setting = ExtResource("7_tto23")
 
-[node name="Btn" parent="Background/VBoxContainer/OptionList" index="0"]
+[node name="Btn" parent="Background/VBoxContainer/DisplayMode" index="0"]
 item_count = 3
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
@@ -80,6 +82,17 @@ theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Audio"
 
+[node name="Volume" parent="Background/VBoxContainer" instance=ExtResource("8_ppugv")]
+layout_mode = 2
+tooltip_text = "Master Volume"
+theme = ExtResource("2_x1nv6")
+setting = ExtResource("9_vex8i")
+
+[node name="Slider" parent="Background/VBoxContainer/Volume" index="0"]
+theme = ExtResource("2_x1nv6")
+tick_count = 3
+ticks_on_borders = true
+
 [node name="Button" type="Button" parent="Background"]
 layout_mode = 0
 offset_left = 410.0
@@ -92,4 +105,5 @@ script = ExtResource("4_n0b7a")
 [connection signal="pressed" from="Background/Button" to="Background/Button" method="_on_pressed"]
 
 [editable path="Background/VBoxContainer/Godmode"]
-[editable path="Background/VBoxContainer/OptionList"]
+[editable path="Background/VBoxContainer/DisplayMode"]
+[editable path="Background/VBoxContainer/Volume"]

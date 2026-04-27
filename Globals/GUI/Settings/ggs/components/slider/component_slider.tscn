@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://bxlftsqgacfqk" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.gd" id="1_4rmgf"]
 
 [node name="Slider" type="MarginContainer"]
-offset_right = 40.0
+offset_right = 1082.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
 script = ExtResource("1_4rmgf")
 
 [node name="Slider" type="HSlider" parent="."]
