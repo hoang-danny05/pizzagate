@@ -21,3 +21,4 @@ func _process(_delta: float) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

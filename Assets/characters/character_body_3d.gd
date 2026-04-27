@@ -5,6 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 6.5
 const DUB_JUMP_VELOCITY = 10
 
+
 @onready var camera: Camera3D = $HPivot/SpringArm3D/Camera3D
 @onready var v_pivot: Node3D = $HPivot/SpringArm3D
 @onready var h_pivot: Node3D = $HPivot
@@ -26,8 +27,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_mouse_movement(event)
 		
-	if Input.is_action_just_pressed("leave_game"):
-		get_tree().quit()
+	#if Input.is_action_just_pressed("leave_game"):
+		#get_tree().quit()
 	
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
@@ -74,10 +75,12 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 		
 	body.rotation.y -= motion.x * mouse_sens
 
-# Take back control when settings are hiddenw
-func _on_settings_settings_toggled(setting_active : bool) -> void:
-	if (setting_active):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+## Take back control when settings are hidden
+## we might have to re-implement this if we want the charcter to do something 
+## special in the settings
+#func _on_settings_settings_toggled(setting_active : bool) -> void:
+	#if (setting_active):
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _on_setting_applied(setting : GGSSetting, value : Variant):
