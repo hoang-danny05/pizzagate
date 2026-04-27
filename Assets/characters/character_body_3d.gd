@@ -5,6 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 6.5
 const DUB_JUMP_VELOCITY = 10
 
+
 @onready var camera: Camera3D = $HPivot/SpringArm3D/Camera3D
 @onready var v_pivot: Node3D = $HPivot/SpringArm3D
 @onready var h_pivot: Node3D = $HPivot
@@ -15,16 +16,19 @@ var sprint_modi = 1
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
 
+var godmode = false
 
-func _ready():
+func _ready(): 
+	# if a player exists, they will hold the input hostage. 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	GGS.setting_applied.connect(_on_setting_applied)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_mouse_movement(event)
 		
-	if Input.is_action_just_pressed("leave_game"):
-		get_tree().quit()
+	#if Input.is_action_just_pressed("leave_game"):
+		#get_tree().quit()
 	
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
@@ -47,6 +51,8 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("move_jump") and !has_double_jumped:
 		velocity.y = DUB_JUMP_VELOCITY
 		has_double_jumped = true
+	elif godmode and Input.is_action_just_pressed("move_jump"):
+		velocity.y = DUB_JUMP_VELOCITY
 		
 
 	# Get the input direction and handle the movement/deceleration.
@@ -68,3 +74,20 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 	h_pivot.rotation.y -= motion.x * mouse_sens
 		
 	body.rotation.y -= motion.x * mouse_sens
+
+## Take back control when settings are hidden
+## we might have to re-implement this if we want the charcter to do something 
+## special in the settings
+#func _on_settings_settings_toggled(setting_active : bool) -> void:
+	#if (setting_active):
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_setting_applied(setting : GGSSetting, value : Variant):
+	# if godmode is changed
+	if (is_instance_of(setting, SettingGameplayGodmode)):
+		godmode = value
+		if value:
+			print("Armando becomes god!")
+		else:
+			print("Armando temporarily returns to mortal form")
