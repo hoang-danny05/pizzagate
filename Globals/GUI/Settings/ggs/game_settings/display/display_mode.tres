@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SettingDisplayMode" load_steps=2 format=3 uid="uid://brynpuij33hnt"]
+
+[ext_resource type="Script" uid="uid://brory0hphls2b" path="res://Globals/GUI/Settings/ggs/scripts/display/setting_display_mode.gd" id="1_n8iv5"]
+
+[resource]
+resource_name = "display_mode"
+script = ExtResource("1_n8iv5")
+key = "display_mode"
+section = "display"
+default = 2
+metadata/_custom_type_script = "uid://brory0hphls2b"
