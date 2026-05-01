@@ -5,6 +5,8 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 6.5
 const DUB_JUMP_VELOCITY = 10
 
+# Magic number obtained via the ancient texts (Stack Overflow)
+const rotation_amount := 7.0
 
 @onready var camera: Camera3D = $HPivot/SpringArm3D/Camera3D
 @onready var v_pivot: Node3D = $HPivot/SpringArm3D
@@ -16,7 +18,10 @@ var sprint_modi = 1
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
 
-var godmode = false
+# The last input direction the body is supposed to face towards.
+# This is a variable so it will still finish rotating even if there's no more player input.
+var target_body_angle: float = 0.0
+var godmode := false
 
 func _ready(): 
 	# if a player exists, they will hold the input hostage. 
@@ -26,13 +31,10 @@ func _ready():
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_mouse_movement(event)
-		
-	#if Input.is_action_just_pressed("leave_game"):
-		#get_tree().quit()
-	
+
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
-		
+
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3
 	else: 
@@ -53,30 +55,30 @@ func _physics_process(delta: float) -> void:
 		has_double_jumped = true
 	elif godmode and Input.is_action_just_pressed("move_jump"):
 		velocity.y = DUB_JUMP_VELOCITY
-		
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (h_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
-		#makes the body rotate
-		body.look_at(direction + position)
-		
 		velocity.x = direction.x * SPEED * sprint_modi
 		velocity.z = direction.z * SPEED * sprint_modi
+		target_body_angle = Vector2(-direction.z, -direction.x).angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * sprint_modi)
 		velocity.z = move_toward(velocity.z, 0, SPEED * sprint_modi)
-
-	move_and_slide()
 	
+	handle_body_rotation(delta)
+	move_and_slide()
+
 func handle_mouse_movement(event: InputEventMouseMotion):
 	var motion: Vector2 = event.relative
 	v_pivot.rotation.x -= motion.y * mouse_sens
 	h_pivot.rotation.y -= motion.x * mouse_sens
-		
-	body.rotation.y -= motion.x * mouse_sens
+
+func handle_body_rotation(delta: float):
+	var weight := delta * rotation_amount
+	body.rotation.y = lerp_angle(body.rotation.y, target_body_angle, weight)
 
 ## Take back control when settings are hidden
 ## we might have to re-implement this if we want the charcter to do something 
@@ -84,7 +86,6 @@ func handle_mouse_movement(event: InputEventMouseMotion):
 #func _on_settings_settings_toggled(setting_active : bool) -> void:
 	#if (setting_active):
 		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 
 func _on_setting_applied(setting : GGSSetting, value : Variant):
 	# if godmode is changed
