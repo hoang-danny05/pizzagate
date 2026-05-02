@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene load_steps=8 format=3 uid="uid://pxfy54hyx0n7"]
 
-[ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="1_afh44"]
 [ext_resource type="Script" uid="uid://blfe6i7r67k71" path="res://Levels/Level1/level_1.gd" id="1_cd2u1"]
 [ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="2_ut2bn"]
-[ext_resource type="PackedScene" uid="uid://tkspvaoxssho" path="res://Levels/Level2/level2.tscn" id="4_mey31"]
+[ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="4_mey31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]
 albedo_color = Color(0.080783345, 0.080783345, 0.0807833, 1)
@@ -31,7 +30,7 @@ use_collision = true
 size = Vector3(71.4975, 1, 64.07141)
 material = SubResource("StandardMaterial3D_afh44")
 
-[node name="Player" parent="." instance=ExtResource("1_afh44")]
+[node name="Player" parent="." instance=ExtResource("4_mey31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.40448093)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -50,7 +49,7 @@ size = Vector3(3, 3, 3)
 
 [node name="SceneSwitch" parent="." instance=ExtResource("2_ut2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
-target_level = ExtResource("4_mey31")
+target_level = "res://Levels/Level2/level2.tscn"
 
 [node name="StartingPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://tkspvaoxssho"]
+[gd_scene load_steps=8 format=3 uid="uid://tkspvaoxssho"]
 
 [ext_resource type="Script" uid="uid://dc4sgwha5bpwg" path="res://Levels/Level2/level_2.gd" id="1_6ja1c"]
 [ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="3_18lh7"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="3_o1ix4"]
-[ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Level1/level1.tscn" id="4_o1ix4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5ysf"]
 albedo_color = Color(0.080783345, 0.080783345, 0.0807833, 1)
@@ -58,4 +57,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 
 [node name="SceneSwitch" parent="." instance=ExtResource("3_18lh7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6063194, 7.7183247, 0)
-target_level = ExtResource("4_o1ix4")
+target_level = "res://Levels/Level1/level1.tscn"
+test = "level2"
