@@ -50,6 +50,7 @@ size = Vector3(3, 3, 3)
 [node name="SceneSwitch" parent="." instance=ExtResource("2_ut2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
 target_level = "res://Levels/Level2/level2.tscn"
+tooltip_text = "Press E to go to level 2"
 
 [node name="StartingPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)

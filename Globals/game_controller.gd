@@ -48,15 +48,13 @@ func _process(_delta: float) -> void:
 			set_process(false)
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(current_scene_path)
-			print(loaded_resource)
 			_replace_current_scene_with(loaded_resource)
 			#get_tree().change_scene_to_packed(loaded_resource) # this replaces EVERYTHING, but ideally replace Node3D
 			load_finished.emit()
 
-func _replace_current_scene_with(loaded_resource : PackedScene): 
+func _replace_current_scene_with(new_scene : PackedScene): 
 	remove_child(current_scene)
-	var instantiated_scene = loaded_resource.instantiate()
-	print(instantiated_scene)
+	var instantiated_scene = new_scene.instantiate()
 	add_child(instantiated_scene)
 	current_scene = instantiated_scene
 	pass

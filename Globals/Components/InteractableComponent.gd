@@ -17,6 +17,10 @@ func _ready() -> void:
 	label.text = label_text
 	pass 
 
+func set_label_text(text : String) -> void:
+	label_text = text # just in case, ya neva know
+	label.text = text
+
 func _on_entered(_node : Node3D) -> void:
 	#print("Interaction Component!!")
 	onEntered.emit()
@@ -28,7 +32,7 @@ func _on_exited(_node : Node3D) -> void:
 
 func _process(_delta : float) -> void:
 	if Input.is_action_just_pressed("interact"):
-		print("Interaction!!")
+		#print("Interaction!!")
 		onInteraction.emit()
 	
 

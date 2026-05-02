@@ -58,4 +58,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 [node name="SceneSwitch" parent="." instance=ExtResource("3_18lh7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6063194, 7.7183247, 0)
 target_level = "res://Levels/Level1/level1.tscn"
-test = "level2"
+tooltip_text = "OH MY GOD NOW DO IT AGAIN"

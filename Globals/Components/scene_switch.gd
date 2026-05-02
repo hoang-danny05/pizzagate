@@ -2,16 +2,17 @@ extends Node3D
 
 var interaction_controller : InteractableComponent
 @export_file_path var target_level
-@export var test : String
+@export var tooltip_text : String
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# setup interaction controller
 	interaction_controller = $InteractableComponent
 	interaction_controller.onInteraction.connect(_on_interaction)
+	if tooltip_text:
+		interaction_controller.set_label_text(tooltip_text)
 	# assert it is a Level. Otherwise, alert.
-	print("hello level 2 ")
-	print("test: ", test)
 	_print_target_level_warnings()
 
 

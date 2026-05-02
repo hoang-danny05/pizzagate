@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://blbxclcadfei6"]
 
-[ext_resource type="Texture2D" uid="uid://by8osbksoqo2f" path="res://Blender/frying_pan/frying_pan_FBX_0.png" id="1_j71ua"]
-[ext_resource type="Texture2D" uid="uid://dk62kd6byo7xj" path="res://Blender/frying_pan/frying_pan_FBX_2.png" id="2_10015"]
+[ext_resource type="Texture2D" path="res://Blender/frying_pan/frying_pan_FBX_0.png" id="1_j71ua"]
+[ext_resource type="Texture2D" path="res://Blender/frying_pan/frying_pan_FBX_2.png" id="2_10015"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv17"]
 resource_name = "frying pan_Mat"
