@@ -4,17 +4,17 @@ class_name GameController
 signal progress_changed(progress : float)
 signal load_finished
 
-# the stuff that can be changed
-@export var current_scene : Node3D
+# global scoped stuff
+var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
+@onready var global_ui = $Settings
 
-# current state
-var current_scene_path
-var progress : Array
+# tracks state of the GameController, editing will do nothing
 var loaded_resource : PackedScene
+@export var current_scene : Node3D
+var current_scene_path : String
+var progress : Array
 
-# for loading
-@export var loading_screen : PackedScene
-
+# options
 var use_multithreading = true
 
 
@@ -22,7 +22,10 @@ func _ready() -> void:
 	#Globals.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
 
+
+
 func load_scene(_scene_path : String) -> void:
+	_before_start_load()
 	current_scene_path = _scene_path
 	
 	var new_load_screen : LoadingScreen = loading_screen.instantiate()
@@ -57,7 +60,16 @@ func _replace_current_scene_with(new_scene : PackedScene):
 	var instantiated_scene = new_scene.instantiate()
 	add_child(instantiated_scene)
 	current_scene = instantiated_scene
-	pass
+	_after_load_finish()
+
+# to prevent the user from pausing on the load screen
+func _before_start_load():
+	global_ui.set_process(false)
+
+func _after_load_finish():
+	global_ui.set_process(true)
+
+
 
 """
 new_scene: the new scene that we want in the fs
