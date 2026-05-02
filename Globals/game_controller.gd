@@ -5,8 +5,7 @@ signal progress_changed(progress : float)
 signal load_finished
 
 # the stuff that can be changed
-@export var world3d : Node3D 
-@export var gui : Control 
+@export var current_scene : Node3D
 
 # current state
 var current_scene_path
@@ -49,8 +48,18 @@ func _process(_delta: float) -> void:
 			set_process(false)
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(current_scene_path)
-			get_tree().change_scene_to_packed(loaded_resource) # this replaces EVERYTHING, but ideally replace Node3D
+			print(loaded_resource)
+			_replace_current_scene_with(loaded_resource)
+			#get_tree().change_scene_to_packed(loaded_resource) # this replaces EVERYTHING, but ideally replace Node3D
 			load_finished.emit()
+
+func _replace_current_scene_with(loaded_resource : PackedScene): 
+	remove_child(current_scene)
+	var instantiated_scene = loaded_resource.instantiate()
+	print(instantiated_scene)
+	add_child(instantiated_scene)
+	current_scene = instantiated_scene
+	pass
 
 """
 new_scene: the new scene that we want in the fs

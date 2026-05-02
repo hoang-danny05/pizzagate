@@ -49,7 +49,7 @@ use_collision = true
 size = Vector3(3, 3, 3)
 
 [node name="SceneSwitch" parent="." instance=ExtResource("2_ut2bn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
 target_level = ExtResource("4_mey31")
 
 [node name="StartingPoint" type="Node3D" parent="."]

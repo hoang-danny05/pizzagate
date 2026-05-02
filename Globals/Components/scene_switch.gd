@@ -9,6 +9,7 @@ func _ready() -> void:
 	interaction_controller = $InteractableComponent
 	interaction_controller.onInteraction.connect(_on_interaction)
 	# assert it is a Level. Otherwise, alert.
+	print("hello level 2 ")
 	_print_target_level_warnings()
 
 
