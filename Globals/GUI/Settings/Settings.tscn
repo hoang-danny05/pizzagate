@@ -89,6 +89,7 @@ theme = ExtResource("2_x1nv6")
 setting = ExtResource("9_vex8i")
 
 [node name="Slider" parent="Background/VBoxContainer/Volume" index="0"]
+size_flags_horizontal = 0
 theme = ExtResource("2_x1nv6")
 tick_count = 3
 ticks_on_borders = true

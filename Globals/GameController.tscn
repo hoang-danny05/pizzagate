@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://n3eb3xl55uow"]
+
+[ext_resource type="Script" uid="uid://b67syrwit3hx0" path="res://Globals/game_controller.gd" id="1_7462k"]
+[ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Level1/level1.tscn" id="1_vbidl"]
+[ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="2_7462k"]
+[ext_resource type="PackedScene" uid="uid://ya7mu00xq5c7" path="res://Globals/GUI/LoadingScreen/LoadingScreen.tscn" id="2_o1wwg"]
+
+[node name="GameController" type="Node"]
+script = ExtResource("1_7462k")
+loading_screen = ExtResource("2_o1wwg")
+
+[node name="Level1" parent="." instance=ExtResource("1_vbidl")]
+
+[node name="Settings" parent="." instance=ExtResource("2_7462k")]
+visible = false

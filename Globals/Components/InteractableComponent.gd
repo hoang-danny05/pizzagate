@@ -20,7 +20,6 @@ func _ready() -> void:
 func _on_entered(_node : Node3D) -> void:
 	#print("Interaction Component!!")
 	onEntered.emit()
-	onInteraction.emit()
 	_activate()
 	
 func _on_exited(_node : Node3D) -> void:

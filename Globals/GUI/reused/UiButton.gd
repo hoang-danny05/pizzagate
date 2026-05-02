@@ -6,7 +6,7 @@ class_name UiButton
 
 
 func _ready() -> void:
-	pressed.connect(_on_pressed)
+	#pressed.connect(_on_pressed) # apparently this is duplicated
 	mouse_entered.connect(_on_mouse_entered)
 	focus_entered.connect(_on_focus_entered)
 
