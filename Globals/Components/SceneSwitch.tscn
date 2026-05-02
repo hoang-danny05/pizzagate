@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvoiadc4eyu7"]
+
+[ext_resource type="Script" uid="uid://cff3nq3l0fh0d" path="res://Globals/Components/scene_switch.gd" id="1_k2kvm"]
+[ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/InteractableComponent.tscn" id="2_g6ea3"]
+
+[node name="SceneSwitch" type="Node3D"]
+script = ExtResource("1_k2kvm")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_g6ea3")]

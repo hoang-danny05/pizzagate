@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SettingAudioVolume" load_steps=2 format=3 uid="uid://nir1mhienixl"]
+
+[ext_resource type="Script" uid="uid://bht1jxwv3w1sp" path="res://Globals/GUI/Settings/ggs/scripts/audio/setting_audio_volume.gd" id="1_q6f6s"]
+
+[resource]
+script = ExtResource("1_q6f6s")
+audio_bus = "Master"
+section = "audio"
+default = 80.0
+metadata/_custom_type_script = "uid://bht1jxwv3w1sp"

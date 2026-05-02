@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjah64eg1nb2b"]
+
+[ext_resource type="Script" uid="uid://c5ovhy3cunp2o" path="res://Globals/Components/InteractableComponent.gd" id="1_s87lx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_skcct"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_s87lx"]
+
+[node name="InteractableComponent" type="Node3D"]
+script = ExtResource("1_s87lx")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_skcct")
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 1
+text = "Hello? Anyone there?"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaceholderMesh_s87lx")
+skeleton = NodePath("../Label3D")
