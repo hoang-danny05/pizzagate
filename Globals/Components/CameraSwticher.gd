@@ -52,7 +52,7 @@ func blend_to(target: Camera3D, duration := 0.7) -> void:
 	var tw := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tw.tween_property(blend_cam, "global_position", target.global_position, duration)
 	tw.parallel().tween_property(blend_cam, "fov", target.fov, duration)
-	tw.parallel().tween_property(blend_cam, "rotation", target.rotation, duration)
+	tw.parallel().tween_property(blend_cam, "global_rotation", target.global_rotation, duration)
 	await tw.finished
 
 	cut_to(target)
