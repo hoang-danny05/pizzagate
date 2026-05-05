@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3naryvo7tkbu"]
+
+[ext_resource type="Script" uid="uid://dcrgx66g0lfqb" path="res://Blender/raga_wheel/order_wheel.gd" id="1_7kvwu"]
+[ext_resource type="PackedScene" uid="uid://bkuj7ut6m261m" path="res://Blender/raga_wheel/raga_wheel.blend" id="1_cbl72"]
+[ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/InteractableComponent.tscn" id="2_7kvwu"]
+
+[node name="OrderWheel" type="Node3D"]
+script = ExtResource("1_7kvwu")
+
+[node name="OrderWheelModel" parent="." instance=ExtResource("1_cbl72")]
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_7kvwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7972685, 0)
+label_text = "YOOO"

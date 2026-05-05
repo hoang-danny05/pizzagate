@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene load_steps=9 format=3 uid="uid://pxfy54hyx0n7"]
 
 [ext_resource type="Script" uid="uid://blfe6i7r67k71" path="res://Levels/Level1/level_1.gd" id="1_cd2u1"]
 [ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="2_ut2bn"]
+[ext_resource type="PackedScene" uid="uid://b3naryvo7tkbu" path="res://Blender/raga_wheel/OrderWheel.tscn" id="4_bf8gk"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="4_mey31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]
@@ -54,3 +55,6 @@ tooltip_text = "Press E to go to level 2"
 
 [node name="StartingPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
+
+[node name="OrderWheel" parent="." instance=ExtResource("4_bf8gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1555214, 0.5161264, 5.2808905)
