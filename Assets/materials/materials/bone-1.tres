@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cxotcnlcsr22b"]
+
+[ext_resource type="Material" uid="uid://dnvlpeg4no6w3" path="res://Assets/materials/outline.tres" id="1_uelv2"]
+[ext_resource type="Shader" uid="uid://tnamnnwd827t" path="res://Assets/shaders/cel-shader-base.gdshader" id="2_0cj6r"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_uelv2")
+shader = ExtResource("2_0cj6r")

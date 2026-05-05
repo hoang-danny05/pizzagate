@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene load_steps=11 format=3 uid="uid://pxfy54hyx0n7"]
 
 [ext_resource type="Script" uid="uid://blfe6i7r67k71" path="res://Levels/Level1/level_1.gd" id="1_cd2u1"]
 [ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="2_ut2bn"]
 [ext_resource type="PackedScene" uid="uid://b3naryvo7tkbu" path="res://Blender/raga_wheel/OrderWheel.tscn" id="4_bf8gk"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="4_mey31"]
+[ext_resource type="Material" uid="uid://b30hw7jthmxmu" path="res://Assets/materials/wood-1.tres" id="5_bf8gk"]
+[ext_resource type="Material" uid="uid://dplcjj746og87" path="res://Assets/materials/materials/leaves-1.tres" id="6_mwloj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]
-albedo_color = Color(0.080783345, 0.080783345, 0.0807833, 1)
+albedo_color = Color(0.5251013, 0.5251013, 0.5251013, 1)
 metallic_specular = 0.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afh44"]
@@ -38,15 +40,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.404
 environment = SubResource("Environment_ut2bn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 100, 0)
-light_energy = 7.928
+transform = Transform3D(0.03776274, -0.18812501, 0.9814189, -0.02399139, 0.9816656, 0.18909545, -0.9989987, -0.030686364, 0.032557003, 83.67061, 20.030529, 0)
 shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 6.0
 sky_mode = 1
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.451071, 2.0169616, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.402751, 1.9781404, -0.035243988)
 use_collision = true
 size = Vector3(3, 3, 3)
+material = ExtResource("5_bf8gk")
 
 [node name="SceneSwitch" parent="." instance=ExtResource("2_ut2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
@@ -58,3 +62,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 
 [node name="OrderWheel" parent="." instance=ExtResource("4_bf8gk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1555214, 0.5161264, 5.2808905)
+
+[node name="CSGBox3D_wood2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6974373, 1.9963965, -10.139466)
+use_collision = true
+size = Vector3(0.2, 3, 0.2)
+
+[node name="CSGBox3D_leaves" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3593836, 4.607549, -10.637053)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = ExtResource("6_mwloj")
