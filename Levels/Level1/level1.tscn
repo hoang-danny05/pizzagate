@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene load_steps=13 format=3 uid="uid://pxfy54hyx0n7"]
 
 [ext_resource type="Script" uid="uid://blfe6i7r67k71" path="res://Levels/Level1/level_1.gd" id="1_cd2u1"]
 [ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="2_ut2bn"]
+[ext_resource type="Material" uid="uid://2m8mvnhn7r2w" path="res://Assets/materials/materials/steel-2.tres" id="3_5ryn7"]
+[ext_resource type="Material" uid="uid://ds2i5hgjb58jb" path="res://Assets/materials/materials/bark-1.tres" id="3_mwloj"]
 [ext_resource type="PackedScene" uid="uid://b3naryvo7tkbu" path="res://Blender/raga_wheel/OrderWheel.tscn" id="4_bf8gk"]
+[ext_resource type="Material" uid="uid://c3j3hwbjlhvpt" path="res://Assets/materials/materials/brick-1.tres" id="4_bpcbn"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="4_mey31"]
-[ext_resource type="Material" uid="uid://b30hw7jthmxmu" path="res://Assets/materials/wood-1.tres" id="5_bf8gk"]
 [ext_resource type="Material" uid="uid://dplcjj746og87" path="res://Assets/materials/materials/leaves-1.tres" id="6_mwloj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]
@@ -27,11 +29,32 @@ script = ExtResource("1_cd2u1")
 start_point = NodePath("StartingPoint")
 player_character = NodePath("Player")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="floor ahh floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9100466, 9.536743e-07, -0.18268776)
 use_collision = true
 size = Vector3(71.4975, 1, 64.07141)
 material = SubResource("StandardMaterial3D_afh44")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.402751, 1.9781404, -0.035243988)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = ExtResource("3_mwloj")
+
+[node name="the kitchen" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="the kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9717455, 3.8271532, 7.871005)
+use_collision = true
+size = Vector3(10, 7, 0.5)
+material = ExtResource("4_bpcbn")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="the kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2166204, 0.98412037, 6.381968)
+use_collision = true
+size = Vector3(3, 1, 3)
+material = ExtResource("3_5ryn7")
 
 [node name="Player" parent="." instance=ExtResource("4_mey31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.40448093)
@@ -46,12 +69,6 @@ shadow_bias = 0.01
 shadow_normal_bias = 6.0
 sky_mode = 1
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.402751, 1.9781404, -0.035243988)
-use_collision = true
-size = Vector3(3, 3, 3)
-material = ExtResource("5_bf8gk")
-
 [node name="SceneSwitch" parent="." instance=ExtResource("2_ut2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
 target_level = "res://Levels/Level2/level2.tscn"
@@ -61,7 +78,7 @@ tooltip_text = "Press E to go to level 2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 
 [node name="OrderWheel" parent="." instance=ExtResource("4_bf8gk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1555214, 0.5161264, 5.2808905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0036988, 1.4634926, 5.2755823)
 
 [node name="CSGBox3D_wood2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6974373, 1.9963965, -10.139466)
