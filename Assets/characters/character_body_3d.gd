@@ -33,6 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
 		
+	#if Input.is_action_just_pressed("interact"):
+		#print(get_viewport().get_camera_3d().get_path())
+		
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3
 	else: 

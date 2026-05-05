@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ttxitfnec5ul"]
+
+[ext_resource type="Script" uid="uid://d78h0cgblgsd" path="res://Globals/Components/CameraSwticher.gd" id="1_b5wb5"]
+[ext_resource type="Texture2D" uid="uid://bo1p1xb7fs2dc" path="res://Blender/pizza_man/chef_reference1.png" id="1_uwh42"]
+
+[node name="CameraSwitcher" type="Node3D"]
+script = ExtResource("1_b5wb5")
+
+[node name="BlendCamera" type="Camera3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_uwh42")
+expand_mode = 5

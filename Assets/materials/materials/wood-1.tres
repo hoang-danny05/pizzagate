@@ -7,6 +7,8 @@
 render_priority = 0
 next_pass = ExtResource("1_lknvw")
 shader = ExtResource("2_2uhfo")
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
 shader_parameter/color = Color(0.470588, 0.411765, 0.356863, 1)
 shader_parameter/specular = Color(0, 0, 0, 0)
 shader_parameter/fresnel = Color(0.22, 0.22, 0.22, 0.501961)

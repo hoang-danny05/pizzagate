@@ -27,6 +27,10 @@ GGS="*res://addons/ggs/core/global_manager/global_manager.tscn"
 
 enabled=PackedStringArray("res://addons/ggs/plugin.cfg")
 
+[global_group]
+
+cameras="all the cameras that we might switch between during gameplay. DO NOT ADD blender cameras OR the 'blend camera' pls"
+
 [input]
 
 move_forward={
