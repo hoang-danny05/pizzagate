@@ -7,6 +7,7 @@ signal onEntered
 var collision : Area3D
 var label : Label3D
 @export var label_text = "Default Label Text"
+@export var enabled : bool = true
 
 func _ready() -> void:
 	collision = $Area3D
@@ -31,7 +32,7 @@ func _on_exited(_node : Node3D) -> void:
 	_deactivate()
 
 func _process(_delta : float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and enabled:
 		#print("Interaction!!")
 		onInteraction.emit()
 	

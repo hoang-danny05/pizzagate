@@ -23,6 +23,11 @@ func adopt(cam: Camera3D) -> void:
 	if cam:
 		cut_to(cam)
 
+func adopt_current() -> void:
+	_adopted = _current
+	if _current:
+		cut_to(_current)
+
 func cut_to(target: Camera3D) -> void:
 	if not target: return
 	if _current: _current.current = false
