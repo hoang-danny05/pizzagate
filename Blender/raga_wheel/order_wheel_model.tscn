@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://da22w3qcmb5kx"]
+
+[ext_resource type="PackedScene" uid="uid://bkuj7ut6m261m" path="res://Blender/raga_wheel/raga_wheel.blend" id="1_utplm"]
+[ext_resource type="Material" uid="uid://5qss4ojdhbk2" path="res://Assets/materials/materials/steel-1.tres" id="2_jtcxg"]
+
+[node name="OrderWheelModel" instance=ExtResource("1_utplm")]
+
+[node name="wheel" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jtcxg")
+
+[node name="eight handled sword divine general" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_jtcxg")
+
+[node name="base" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_jtcxg")

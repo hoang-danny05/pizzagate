@@ -27,11 +27,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_mouse_movement(event)
 		
-	#if Input.is_action_just_pressed("leave_game"):
-		#get_tree().quit()
-	
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
+		
+	if Input.is_action_just_pressed("debug"):
+		var _current = get_viewport().get_camera_3d()
+		#var _current = camera
+		print("TRUTH NUKE:", _current.global_transform, _current.get_path())
+
 		
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3

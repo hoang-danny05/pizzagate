@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://tkspvaoxssho"]
 
 [ext_resource type="Script" uid="uid://dc4sgwha5bpwg" path="res://Levels/Level2/level_2.gd" id="1_6ja1c"]
-[ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/SceneSwitch.tscn" id="3_18lh7"]
+[ext_resource type="PackedScene" uid="uid://blvoiadc4eyu7" path="res://Globals/Components/interactible/SceneSwitch.tscn" id="3_18lh7"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="3_o1ix4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5ysf"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chcla6amfdkwo"
-path.s3tc="res://.godot/imported/chef.png-bd3c8ed4e915e6b4b696416e9d019d03.s3tc.ctex"
+uid="uid://brnor5u67ubou"
+path.s3tc="res://.godot/imported/bricked_up.jpg-347d5d0e32e2f72156df144fdfd91a1c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Blender/pizza_man/chef.png"
-dest_files=["res://.godot/imported/chef.png-bd3c8ed4e915e6b4b696416e9d019d03.s3tc.ctex"]
+source_file="res://Assets/textures/bricked_up.jpg"
+dest_files=["res://.godot/imported/bricked_up.jpg-347d5d0e32e2f72156df144fdfd91a1c.s3tc.ctex"]
 
 [params]
 

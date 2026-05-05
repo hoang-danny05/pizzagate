@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chcla6amfdkwo"
-path.s3tc="res://.godot/imported/chef.png-bd3c8ed4e915e6b4b696416e9d019d03.s3tc.ctex"
+uid="uid://bwq3tkakm4ixh"
+path.s3tc="res://.godot/imported/raga_texture.png-eb2dc865e8223d2ccdf7101c8b017459.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Blender/pizza_man/chef.png"
-dest_files=["res://.godot/imported/chef.png-bd3c8ed4e915e6b4b696416e9d019d03.s3tc.ctex"]
+source_file="res://Blender/raga_wheel/textures/raga_texture.png"
+dest_files=["res://.godot/imported/raga_texture.png-eb2dc865e8223d2ccdf7101c8b017459.s3tc.ctex"]
 
 [params]
 

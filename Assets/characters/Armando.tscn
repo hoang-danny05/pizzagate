@@ -24,6 +24,6 @@ shape = SubResource("CapsuleShape3D_xhqyh")
 transform = Transform3D(1, 0, 0, 0, 0.91913533, 0.3939419, 0, -0.3939419, 0.91913533, -0.090101, 1.7034314, 0.058514386)
 spring_length = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="HPivot/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="HPivot/SpringArm3D" groups=["cameras"]]
 current = true
 fov = 41.7
