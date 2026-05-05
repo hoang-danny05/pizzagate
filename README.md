@@ -35,3 +35,8 @@ make more as you go. We'll probably need
 Thanks to Prince for keeping us in check
 
 No GenAI was used to make this masterpiece
+
+### Stuff That I Used
+
+[Cel shaders](https://godotshaders.com/shader/complete-cel-shader-for-godot-4/)
+[Godot game settings](https://github.com/zijcht/godot-game-settings)
