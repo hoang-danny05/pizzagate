@@ -36,6 +36,10 @@ func cut_to(target: Camera3D) -> void:
 	blend_cam.current = false
 
 func blend_to(target: Camera3D, duration := 0.7) -> void:
+	print("global:", target.global_transform, _current.get_path())
+	print("local :", _adopted.transform, _adopted.get_path())
+	print("equality:", target == _adopted)
+
 	if not target or target == _current: return
 	# Pose BlendCam at current
 	blend_cam.global_position = _current.global_position
