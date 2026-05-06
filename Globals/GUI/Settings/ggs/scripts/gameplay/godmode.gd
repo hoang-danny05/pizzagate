@@ -15,6 +15,6 @@ func _init() -> void:
 	section = "gameplay"
 
 
-func apply(god_mode: bool) -> void:
+func apply(_god_mode: bool) -> void:
 	#print("God Mode Updated to: ", god_mode)
 	pass

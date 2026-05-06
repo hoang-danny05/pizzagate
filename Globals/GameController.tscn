@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://n3eb3xl55uow"]
+
+[ext_resource type="Script" uid="uid://b67syrwit3hx0" path="res://Globals/game_controller.gd" id="1_7462k"]
+[ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Level1/level1.tscn" id="1_vbidl"]
+[ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="2_7462k"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("current_scene")]
+script = ExtResource("1_7462k")
+current_scene = NodePath("Level1")
+
+[node name="Level1" parent="." instance=ExtResource("1_vbidl")]
+
+[node name="Settings" parent="." instance=ExtResource("2_7462k")]
+visible = false

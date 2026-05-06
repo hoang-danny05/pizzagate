@@ -7,7 +7,6 @@ extends GGSComponent
 
 func _ready() -> void:
 	compatible_types = [TYPE_BOOL]
-	print("test init")
 	# game settings
 	#if not Engine.is_editor_hint():
 		#return

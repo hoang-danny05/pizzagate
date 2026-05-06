@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c2278ea5y38ul"]
+
+[ext_resource type="Shader" uid="uid://wns3365xoben" path="res://Assets/shaders/cel-shader-translucent.gdshader" id="1_3q66p"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3q66p")

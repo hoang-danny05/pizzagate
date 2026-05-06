@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6fourcox2l3w"]
+
+[ext_resource type="Script" uid="uid://bxlftsqgacfqk" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.gd" id="1_y85hu"]
+
+[node name="BetterSlider" type="MarginContainer"]
+offset_right = 841.0
+offset_bottom = 50.0
+script = ExtResource("1_y85hu")
+
+[node name="Slider" type="HSlider" parent="."]
+layout_mode = 2

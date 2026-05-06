@@ -8,6 +8,8 @@ radius = 0.4736328
 height = 2.4887695
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_8c5hb")
 
 [node name="the_chef_v2" parent="." instance=ExtResource("1_flhyt")]
@@ -22,6 +24,6 @@ shape = SubResource("CapsuleShape3D_xhqyh")
 transform = Transform3D(1, 0, 0, 0, 0.91913533, 0.3939419, 0, -0.3939419, 0.91913533, -0.090101, 1.7034314, 0.058514386)
 spring_length = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="HPivot/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="HPivot/SpringArm3D" groups=["cameras"]]
 current = true
 fov = 41.7
