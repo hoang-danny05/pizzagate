@@ -11,6 +11,6 @@ shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 shader_parameter/color = Color(0.470588, 0.411765, 0.356863, 1)
 shader_parameter/specular = Color(0, 0, 0, 0)
-shader_parameter/fresnel = Color(0.22, 0.22, 0.22, 0.501961)
+shader_parameter/fresnel = Color(0, 0.21960784, 0.21960784, 0.5019608)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)

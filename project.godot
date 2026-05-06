@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GGS="*res://addons/ggs/core/global_manager/global_manager.tscn"
+Global="*res://Globals/Controllers/Global.tscn"
 
 [editor_plugins]
 

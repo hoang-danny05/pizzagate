@@ -4,6 +4,7 @@ var player_cam : Camera3D
 var camera : Camera3D
 var interaction_controller : InteractableComponent
 var active : bool
+var last_mouse_mode : Input.MouseMode
 @onready var thief : GUI3D = $InputThief
 @export var switcher : CameraSwitcher
 
@@ -26,13 +27,15 @@ func _activate() -> void:
 	#switcher.adopt(player_cam)
 	switcher.adopt_current()
 	switcher.blend_to(camera)
+	last_mouse_mode = Input.mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	active=true
 	thief.block_mouse_motion = true
 	
 
 func _deactivate() -> void:
-	switcher.blend_to(player_cam) # dude i have no idea why blend doesn't work
-	#switcher.cut_to(player_cam) # temp solution
+	switcher.blend_to(player_cam) 
+	Input.mouse_mode = last_mouse_mode
 	active=false
 	thief.block_mouse_motion = false
 
