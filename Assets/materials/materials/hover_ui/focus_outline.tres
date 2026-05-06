@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://be1fi2mocvc1f"]
+
+[ext_resource type="Shader" uid="uid://cwbeywpny2hue" path="res://Assets/shaders/focus-outline.gdshader" id="1_tuel5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tuel5")

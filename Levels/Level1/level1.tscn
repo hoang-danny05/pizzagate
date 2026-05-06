@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3naryvo7tkbu" path="res://Blender/raga_wheel/OrderWheel.tscn" id="4_bf8gk"]
 [ext_resource type="Material" uid="uid://c3j3hwbjlhvpt" path="res://Assets/materials/materials/brick-1.tres" id="4_bpcbn"]
 [ext_resource type="PackedScene" uid="uid://l4bbje65tsio" path="res://Assets/characters/Armando.tscn" id="4_mey31"]
-[ext_resource type="Material" uid="uid://b30hw7jthmxmu" path="res://Assets/materials/materials/wood-1.tres" id="5_4t2ji"]
+[ext_resource type="Material" uid="uid://b30hw7jthmxmu" path="res://Assets/materials/wood-1.tres" id="5_4t2ji"]
 [ext_resource type="Material" uid="uid://dplcjj746og87" path="res://Assets/materials/materials/leaves-1.tres" id="6_mwloj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]

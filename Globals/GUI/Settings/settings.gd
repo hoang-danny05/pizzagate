@@ -23,4 +23,5 @@ func _input(event: InputEvent) -> void:
 		else:
 			get_tree().paused = false
 			Global.mouse_mode_pop_and_apply()
+		get_viewport().set_input_as_handled()
 			

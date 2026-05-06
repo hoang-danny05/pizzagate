@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://htbx2x5fkoye"]
+
+[ext_resource type="Script" uid="uid://b8kto3nlcr4lb" path="res://Globals/Components/clickable.gd" id="1_forfv"]
+[ext_resource type="Material" uid="uid://ccjbl207guytn" path="res://Assets/materials/materials/hover_ui/order_item.tres" id="2_5rqr4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_forfv"]
+size = Vector3(0.075, 0.15, 0.01)
+
+[node name="Clickable" type="Node3D"]
+script = ExtResource("1_forfv")
+focus_material = ExtResource("2_5rqr4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 0.2, 0.01)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_forfv")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_input_event"]

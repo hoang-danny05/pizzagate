@@ -122,3 +122,7 @@ diffuse_curve={
 "type": "sampler2D",
 "value": "res://Assets/textures/curve_texture.tres"
 }
+focus_outline_color={
+"type": "color",
+"value": Color(0.78568155, 0.37791023, 0.030447513, 1)
+}
