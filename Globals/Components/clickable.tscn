@@ -14,9 +14,8 @@ focus_material = ExtResource("2_5rqr4")
 size = Vector3(0.1, 0.2, 0.01)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+disable_mode = 1
 input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_forfv")
-
-[connection signal="input_event" from="StaticBody3D" to="." method="_on_input_event"]

@@ -9,8 +9,6 @@
 [node name="OrderWheel" type="Node3D"]
 script = ExtResource("1_7kvwu")
 
-[node name="OrderWheel" parent="." instance=ExtResource("2_uy4pa")]
-
 [node name="InteractableComponent" parent="." instance=ExtResource("2_7kvwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7972685, 0)
 label_text = "YOOO"
@@ -22,5 +20,14 @@ fov = 33.5
 [node name="InputThief" type="Node3D" parent="."]
 script = ExtResource("4_uy4pa")
 
-[node name="Clickable" parent="." instance=ExtResource("5_0qquj")]
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Clickable" parent="Pivot" node_paths=PackedStringArray("next_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5574687, -0.41219753)
+next_item = NodePath("../Clickable2")
+
+[node name="Clickable2" parent="Pivot" node_paths=PackedStringArray("next_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
+transform = Transform3D(0.7011333, 0, 0.7130302, 0, 1, 0, -0.7130302, 0, 0.7011333, -0.2644484, 0.5574687, -0.30969068)
+next_item = NodePath("../Clickable")
+
+[node name="OrderWheelMesh" parent="Pivot" instance=ExtResource("2_uy4pa")]
