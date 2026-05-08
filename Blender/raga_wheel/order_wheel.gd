@@ -6,8 +6,10 @@ var active : bool ## the condition of if the boi is on or not
 
 @onready var interaction_controller : InteractableComponent = $InteractableComponent
 @onready var camera : Camera3D = $EpicCamera
-@onready var thief : GUI3D = $InputThief
 @onready var pivot : Node3D = $Pivot
+@onready var btn_right : Button = $right
+@onready var btn_left : Button = $left
+
 
 @export var switcher : CameraSwitcher
 @export var current_order : Clickable
@@ -17,6 +19,7 @@ func _ready() -> void:
 	
 	player_cam = get_viewport().get_camera_3d() # assuming the player cam is the default active one
 	
+	# the default thing
 	if current_order == null:
 		current_order = $Pivot/Clickable
 	
@@ -27,6 +30,9 @@ func _ready() -> void:
 			continue
 		var clickable_order : Clickable = order
 		clickable_order.focus_to_me.connect(set_focus_to)
+	
+	btn_left.visible = false
+	btn_right.visible = false
 
 func _on_interaction() -> void:
 	print(active)
@@ -42,23 +48,37 @@ func _activate() -> void:
 	switcher.blend_to(camera)
 	Global.mouse_mode_push(Input.mouse_mode)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	active=true
-	thief.block_mouse_motion = true
+	active = true
+	btn_right.visible = true
 	
 
 func _deactivate() -> void:
 	switcher.blend_to(player_cam) 
 	Global.mouse_mode_pop_and_apply()
-	active=false
-	thief.block_mouse_motion = false
+	active = false
+	btn_right.visible = false
+	
+	
 
-#func _input("_inpt : InputEvent) -> void:
+func _input(event : InputEvent) -> void:
+	if active:
+		if event is InputEventMouseMotion:
+			get_viewport().set_input_as_handled()
+		#if event is InputEventKey
+	
 	#if _inpt.is_action_pressed("debug"):
 		#print(Adopted:", switcher._adopted.global_transform, switcher._adopted.get_path())
 		
 
+func focus_next() -> void:
+	if current_order == null:
+		print("[ERR]: current order is null")
+		return
+	set_focus_to(current_order.next_item)
+
 func set_focus_to(new_clickable : Clickable) -> void:
 	_focus_to_rotation(new_clickable.rotation)
+	current_order = new_clickable
 
 ## given a clickable nodes rotation, this rotates the pivot
 ## so that the given clickable object is visible
