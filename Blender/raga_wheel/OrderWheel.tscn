@@ -30,18 +30,24 @@ script = ExtResource("4_uy4pa")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Clickable" parent="Pivot" node_paths=PackedStringArray("next_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
+[node name="Clickable" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5574687, -0.41219753)
 next_item = NodePath("../Clickable2")
+prev_item = NodePath("../Clickable3")
 
-[node name="Clickable2" parent="Pivot" node_paths=PackedStringArray("next_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
+[node name="Clickable2" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
 transform = Transform3D(0.7011333, 0, 0.7130302, 0, 1, 0, -0.7130302, 0, 0.7011333, -0.2644484, 0.5574687, -0.30969068)
+next_item = NodePath("../Clickable3")
+prev_item = NodePath("../Clickable")
+
+[node name="Clickable3" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
+transform = Transform3D(-0.016824216, 0, 0.9998585, 0, 1, 0, -0.9998585, 0, -0.016824216, -0.40753314, 0.55222535, -0.0039862394)
 next_item = NodePath("../Clickable")
+prev_item = NodePath("../Clickable2")
 
 [node name="OrderWheelMesh" parent="Pivot" instance=ExtResource("2_uy4pa")]
 
 [node name="left" type="Button" parent="."]
-visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -80,4 +86,5 @@ button_mask = 7
 shortcut = SubResource("Shortcut_6mk7v")
 icon = ExtResource("7_620px")
 
+[connection signal="pressed" from="left" to="." method="focus_prev"]
 [connection signal="pressed" from="right" to="." method="focus_next"]

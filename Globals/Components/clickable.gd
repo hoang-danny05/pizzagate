@@ -7,7 +7,8 @@ signal focus_to_me(Clickable)
 @onready var mesh : CSGBox3D = $CSGBox3D
 @onready var collision : StaticBody3D = $StaticBody3D
 @export var focus_material : Material
-@export var next_item : Clickable
+@export var next_item : Clickable ## like a double linked list, next
+@export var prev_item : Clickable ## like a double linked list, prev
 var init_material : Material
 var currently_hovered : bool = false
 var button_down : bool = false
@@ -23,6 +24,10 @@ func _ready() -> void:
 		print("[WARN]: Clickable next_node should be set for ", get_path())
 	if (next_item == self):
 		print("[WARN]: Clickable points to itself as next obect ", get_path())
+	if (prev_item == null):
+		print("[WARN]: Clickable prev_node should be set for ", get_path())
+	if (prev_item == self):
+		print("[WARN]: Clickable points to itself as prev obect ", get_path())
 	pass
 
 func _input(event: InputEvent) -> void:

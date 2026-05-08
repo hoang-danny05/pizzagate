@@ -50,6 +50,7 @@ func _activate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	active = true
 	btn_right.visible = true
+	btn_left.visible = true
 	
 
 func _deactivate() -> void:
@@ -57,6 +58,7 @@ func _deactivate() -> void:
 	Global.mouse_mode_pop_and_apply()
 	active = false
 	btn_right.visible = false
+	btn_left.visible = false
 	
 	
 
@@ -71,12 +73,14 @@ func _input(event : InputEvent) -> void:
 		
 
 func focus_next() -> void:
-	if current_order == null:
-		print("[ERR]: current order is null")
-		return
 	set_focus_to(current_order.next_item)
 
+func focus_prev() -> void:
+	set_focus_to(current_order.prev_item)
+
 func set_focus_to(new_clickable : Clickable) -> void:
+	if new_clickable == null:
+		print("[ERR]: new_clickable was given null!")
 	_focus_to_rotation(new_clickable.rotation)
 	current_order = new_clickable
 
