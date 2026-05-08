@@ -12,7 +12,7 @@ const rotation_amount := 7.0
 @onready var v_pivot: Node3D = $HPivot/SpringArm3D
 @onready var h_pivot: Node3D = $HPivot
 @onready var body = $the_chef_v2
-@onready var equippedItem = $"the_chef_v2/scale metarig/Skeleton3D/BoneAttachment3D/frying_pan_FBX"
+@onready var equippedItem = $"the_chef_v2/metarig/Skeleton3D/scale metarig_Skeleton3D#BoneAttachment3D/frying_pan_FBX"
 
 var sprint_modi = 1
 var has_double_jumped: bool = false
