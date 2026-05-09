@@ -87,4 +87,11 @@ func set_focus_to(new_clickable : Clickable) -> void:
 ## given a clickable nodes rotation, this rotates the pivot
 ## so that the given clickable object is visible
 func _focus_to_rotation(new_rotation: Vector3) -> void:
-	pivot.rotation = new_rotation * -1
+	if current_tween and current_tween.is_running():
+		current_tween.stop()
+		
+	current_tween = create_tween()
+	current_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
+	current_tween.set_ease(Tween.EASE_OUT)
+	current_tween.set_trans(Tween.TRANS_CUBIC)
+	#pivot.rotation = new_rotation * -1
