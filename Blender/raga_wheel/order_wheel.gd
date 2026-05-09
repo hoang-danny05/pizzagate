@@ -35,7 +35,9 @@ func _ready() -> void:
 	btn_right.visible = false
 
 func _on_interaction() -> void:
-	print(active)
+	# skip interaction if tween is active
+	if(switcher._tween and switcher._tween.is_running()):
+		return
 	if (active):
 		_deactivate()
 	else:
@@ -44,21 +46,23 @@ func _on_interaction() -> void:
 
 func _activate() -> void:
 	#switcher.adopt(player_cam)
-	switcher.adopt_current()
-	switcher.blend_to(camera)
-	Global.mouse_mode_push(Input.mouse_mode)
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	active = true
 	btn_right.visible = true
 	btn_left.visible = true
+	#switcher.adopt_current()
+	Global.mouse_mode_push(Input.mouse_mode)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	switcher.blend_to(camera)
+	
 	
 
 func _deactivate() -> void:
-	switcher.blend_to(player_cam) 
-	Global.mouse_mode_pop_and_apply()
 	active = false
 	btn_right.visible = false
 	btn_left.visible = false
+	Global.mouse_mode_pop_and_apply()
+	switcher.blend_to(player_cam) 
+	
 	
 	
 
@@ -91,7 +95,8 @@ func _focus_to_rotation(new_rotation: Vector3) -> void:
 		current_tween.stop()
 		
 	current_tween = create_tween()
-	current_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
 	current_tween.set_ease(Tween.EASE_OUT)
 	current_tween.set_trans(Tween.TRANS_CUBIC)
+	current_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
+
 	#pivot.rotation = new_rotation * -1

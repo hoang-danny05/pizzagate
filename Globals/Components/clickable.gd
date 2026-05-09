@@ -33,7 +33,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if (currently_hovered and event is InputEventMouseButton):
 		print("[input] EVENT RECIEVED!!!!")
-		print(event)
+		#print(event)
 		focus_to_me.emit(self)
 		
 	if (event is InputEventKey and event.is_action_pressed("debug")):
@@ -45,12 +45,12 @@ func _input(event: InputEvent) -> void:
 func _on_hovered() -> void:
 	mesh.material = focus_material
 	currently_hovered = true
-	print("hovered")
+	#print("hovered")
 
 func _on_exited() -> void:
 	mesh.material = init_material
 	currently_hovered = false
-	print("exited")
+	#print("exited")
 
 
 #func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
