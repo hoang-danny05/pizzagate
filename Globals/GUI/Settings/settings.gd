@@ -12,8 +12,8 @@ func _ready() -> void:
 
 # yeah.
 # So it's actually always active, might be tanking performance?
-func _input(event: InputEvent) -> void:
-	if (event is InputEventKey and event.is_action_pressed("ui_toggle")):
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventKey and event.is_action_pressed("ui_cancel")):
 		visible = ! visible;
 		settings_toggled.emit(visible)
 		if visible:

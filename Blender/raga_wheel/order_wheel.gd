@@ -52,13 +52,14 @@ func area_left(_area : Node3D) -> void:
 
 func _activate() -> void:
 	#switcher.adopt(player_cam)
+	await switcher.blend_to(camera)
 	active = true
 	btn_right.visible = true
 	btn_left.visible = true
 	#switcher.adopt_current()
 	Global.mouse_mode_push(Input.mouse_mode)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	switcher.blend_to(camera)
+	print("Activated!")
 	
 
 
@@ -84,9 +85,18 @@ func _input(event : InputEvent) -> void:
 				focus_next()
 			if event.is_action_pressed("ui_accept"):
 				toggle_order_focus()
+			if event.is_action_pressed("ui_cancel"):
+				_deactivate()
 			get_viewport().set_input_as_handled() # all other inputs are BLOCKED
 	#if _inpt.is_action_pressed("debug"):
 		#print(Adopted:", switcher._adopted.global_transform, switcher._adopted.get_path())
+	# block all inputs when tweening
+	if (switcher._tween and switcher._tween.is_running()):
+		get_viewport().set_input_as_handled() # all other inputs are BLOCKED
+		
+	if event is InputEventKey and event.is_action_pressed("debug"):
+		print("Active State: ", active)
+		
 		
 ########################################
 # order-related methods
@@ -122,6 +132,6 @@ func toggle_order_focus() -> void:
 	print("CURRENT GUY FOCUSED")
 	if (current_order.order_data):
 		order_details.set_order_data(current_order.order_data)
-		order_details.activate()
+		order_details.toggle_active()
 		pass
 	pass

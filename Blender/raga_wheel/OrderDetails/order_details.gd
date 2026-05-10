@@ -8,16 +8,23 @@ var order_data : OrderData
 @onready var focus_audio : AudioStreamPlayer = $Audio/FocusPaper
 
 func _ready() -> void:
-	deactivate()
+	_deactivate()
 
-func activate():
+func toggle_active():
+	if active:
+		_deactivate()
+	else:
+		_activate()
+
+func _activate():
 	if (not order_data):
 		print("[ERR]: order_data was not set before displaying!")
+		return
 	focus_audio.play()
 	active = true
 	visible = true
 
-func deactivate():
+func _deactivate():
 	active = false
 	visible = false
 
