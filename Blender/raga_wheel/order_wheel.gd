@@ -1,6 +1,6 @@
 extends Node3D
 
-var current_tween : Tween
+var rotation_tween : Tween
 var player_cam : Camera3D
 var active : bool ## the condition of if the boi is on or not
 
@@ -10,9 +10,8 @@ var active : bool ## the condition of if the boi is on or not
 @onready var btn_right : Button = $right
 @onready var btn_left : Button = $left
 
-
 @export var switcher : CameraSwitcher
-@export var current_order : Clickable
+@export var current_order : Order
 
 func _ready() -> void:
 	interaction_controller.onInteraction.connect(_on_interaction)
@@ -21,14 +20,14 @@ func _ready() -> void:
 	
 	# the default thing
 	if current_order == null:
-		current_order = $Pivot/Clickable
+		current_order = $Pivot/Order
 	
 	# connect all order items (clickable) to set rotation
 	for order in get_tree().get_nodes_in_group("order_items"):
-		if not order is Clickable:
+		if not order is Order:
 			print("[WARN]: node in order_items is not clickable! ", get_path())
 			continue
-		var clickable_order : Clickable = order
+		var clickable_order : Order = order
 		clickable_order.focus_to_me.connect(set_focus_to)
 	
 	btn_left.visible = false
@@ -54,7 +53,7 @@ func _activate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	switcher.blend_to(camera)
 	
-	
+
 
 func _deactivate() -> void:
 	active = false
@@ -70,19 +69,32 @@ func _input(event : InputEvent) -> void:
 	if active:
 		if event is InputEventMouseMotion:
 			get_viewport().set_input_as_handled()
-		#if event is InputEventKey
 	
+		if event is InputEventKey:
+			if event.is_action_pressed("ui_left"):
+				focus_prev()
+			if event.is_action_pressed("ui_right"):
+				focus_next()
+			if event.is_action_pressed("ui_accept"):
+				toggle_order_focus()
+			get_viewport().set_input_as_handled() # all other inputs are BLOCKED
 	#if _inpt.is_action_pressed("debug"):
 		#print(Adopted:", switcher._adopted.global_transform, switcher._adopted.get_path())
 		
+########################################
+# order-related methods
+########################################
 
+## select next level
 func focus_next() -> void:
 	set_focus_to(current_order.next_item)
 
+## select previous level
 func focus_prev() -> void:
 	set_focus_to(current_order.prev_item)
 
-func set_focus_to(new_clickable : Clickable) -> void:
+## given an order, make it active.
+func set_focus_to(new_clickable : Order) -> void:
 	if new_clickable == null:
 		print("[ERR]: new_clickable was given null!")
 	_focus_to_rotation(new_clickable.rotation)
@@ -91,12 +103,15 @@ func set_focus_to(new_clickable : Clickable) -> void:
 ## given a clickable nodes rotation, this rotates the pivot
 ## so that the given clickable object is visible
 func _focus_to_rotation(new_rotation: Vector3) -> void:
-	if current_tween and current_tween.is_running():
-		current_tween.stop()
+	if rotation_tween and rotation_tween.is_running():
+		rotation_tween.stop()
 		
-	current_tween = create_tween()
-	current_tween.set_ease(Tween.EASE_OUT)
-	current_tween.set_trans(Tween.TRANS_CUBIC)
-	current_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
+	rotation_tween = create_tween()
+	rotation_tween.set_ease(Tween.EASE_OUT)
+	rotation_tween.set_trans(Tween.TRANS_CUBIC)
+	rotation_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
 
-	#pivot.rotation = new_rotation * -1
+func toggle_order_focus() -> void:
+	print("CURRENT GUY FOCUSED")
+	
+	pass

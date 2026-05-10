@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci7y6fj5xctnm"]
+
+[ext_resource type="Script" uid="uid://ecoo2p2qc5hg" path="res://Blender/raga_wheel/Order/order.gd" id="1_hj5s0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hj5s0"]
+size = Vector3(0.075, 0.15, 0.01)
+
+[node name="Order" type="Node3D"]
+script = ExtResource("1_hj5s0")
+metadata/_custom_type_script = "uid://b8kto3nlcr4lb"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 0.2, 0.01)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+disable_mode = 1
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_hj5s0")

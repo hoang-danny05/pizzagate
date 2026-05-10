@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OrderData" load_steps=2 format=3 uid="uid://7buhnq480xt6"]
+
+[ext_resource type="Script" uid="uid://blhstm6p7ybnv" path="res://Blender/raga_wheel/OrderDetails/order_data.gd" id="1_wf3pb"]
+
+[resource]
+script = ExtResource("1_wf3pb")
+target_level = "<null>"
+metadata/_custom_type_script = "uid://blhstm6p7ybnv"

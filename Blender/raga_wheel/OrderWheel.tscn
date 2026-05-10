@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dcrgx66g0lfqb" path="res://Blender/raga_wheel/order_wheel.gd" id="1_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/interactible/InteractableComponent.tscn" id="2_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://da22w3qcmb5kx" path="res://Blender/raga_wheel/order_wheel_model.tscn" id="2_uy4pa"]
-[ext_resource type="Script" uid="uid://cnvu0h16nr1u2" path="res://Blender/raga_wheel/input_thief.gd" id="4_uy4pa"]
-[ext_resource type="PackedScene" uid="uid://htbx2x5fkoye" path="res://Globals/Components/clickable.tscn" id="5_0qquj"]
+[ext_resource type="PackedScene" uid="uid://ci7y6fj5xctnm" path="res://Blender/raga_wheel/Order/Order.tscn" id="4_620px"]
+[ext_resource type="Material" uid="uid://ccjbl207guytn" path="res://Assets/materials/materials/hover_ui/order_item.tres" id="5_15bpn"]
 [ext_resource type="Texture2D" uid="uid://g14olq00nh6k" path="res://Assets/2d/ui/left.tres" id="6_cjpb3"]
 [ext_resource type="Texture2D" uid="uid://b0dntgbqukapr" path="res://Assets/2d/ui/right.tres" id="7_620px"]
 
@@ -25,25 +25,25 @@ label_text = "YOOO"
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5680377, -0.9021438)
 fov = 33.5
 
-[node name="InputThief" type="Node3D" parent="."]
-script = ExtResource("4_uy4pa")
-
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Clickable" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5574687, -0.41219753)
-next_item = NodePath("../Clickable2")
-prev_item = NodePath("../Clickable3")
+[node name="Order" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.557, -0.412)
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order2")
+prev_item = NodePath("../Order3")
 
-[node name="Clickable2" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
-transform = Transform3D(0.7011333, 0, 0.7130302, 0, 1, 0, -0.7130302, 0, 0.7011333, -0.2644484, 0.5574687, -0.30969068)
-next_item = NodePath("../Clickable3")
-prev_item = NodePath("../Clickable")
+[node name="Order2" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(0.70090926, 0, 0.71325046, 0, 1, 0, -0.71325046, 0, 0.70090926, -0.264, 0.557, -0.31)
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order3")
+prev_item = NodePath("../Order")
 
-[node name="Clickable3" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("5_0qquj")]
-transform = Transform3D(-0.016824216, 0, 0.9998585, 0, 1, 0, -0.9998585, 0, -0.016824216, -0.40753314, 0.55222535, -0.0039862394)
-next_item = NodePath("../Clickable")
-prev_item = NodePath("../Clickable2")
+[node name="Order3" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -0.408, 0.552, -0.004)
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order")
+prev_item = NodePath("../Order2")
 
 [node name="OrderWheelMesh" parent="Pivot" instance=ExtResource("2_uy4pa")]
 
@@ -51,6 +51,7 @@ prev_item = NodePath("../Clickable2")
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 10.0
 offset_top = -20.0
 offset_right = 40.0
 offset_bottom = 20.0
@@ -77,6 +78,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -40.0
 offset_top = -20.0
+offset_right = -10.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
