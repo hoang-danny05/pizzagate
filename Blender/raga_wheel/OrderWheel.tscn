@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3naryvo7tkbu"]
+[gd_scene load_steps=12 format=3 uid="uid://b3naryvo7tkbu"]
 
 [ext_resource type="Script" uid="uid://dcrgx66g0lfqb" path="res://Blender/raga_wheel/order_wheel.gd" id="1_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/interactible/InteractableComponent.tscn" id="2_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://da22w3qcmb5kx" path="res://Blender/raga_wheel/order_wheel_model.tscn" id="2_uy4pa"]
 [ext_resource type="PackedScene" uid="uid://ci7y6fj5xctnm" path="res://Blender/raga_wheel/Order/Order.tscn" id="4_620px"]
+[ext_resource type="Resource" uid="uid://7buhnq480xt6" path="res://Blender/raga_wheel/OrderDetails/Orders/order1.tres" id="4_sku7b"]
 [ext_resource type="Material" uid="uid://ccjbl207guytn" path="res://Assets/materials/materials/hover_ui/order_item.tres" id="5_15bpn"]
 [ext_resource type="Texture2D" uid="uid://g14olq00nh6k" path="res://Assets/2d/ui/left.tres" id="6_cjpb3"]
 [ext_resource type="Texture2D" uid="uid://b0dntgbqukapr" path="res://Assets/2d/ui/right.tres" id="7_620px"]
+[ext_resource type="PackedScene" uid="uid://c8h8r7levsfn" path="res://Blender/raga_wheel/OrderDetails/OrderDetails.tscn" id="8_15bpn"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_vfk18"]
 keycode = 76
@@ -29,6 +31,7 @@ fov = 33.5
 
 [node name="Order" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.557, -0.412)
+order_data = ExtResource("4_sku7b")
 focus_material = ExtResource("5_15bpn")
 next_item = NodePath("../Order2")
 prev_item = NodePath("../Order3")
@@ -87,6 +90,8 @@ focus_behavior_recursive = 2
 button_mask = 7
 shortcut = SubResource("Shortcut_6mk7v")
 icon = ExtResource("7_620px")
+
+[node name="OrderDetails" parent="." instance=ExtResource("8_15bpn")]
 
 [connection signal="pressed" from="left" to="." method="focus_prev"]
 [connection signal="pressed" from="right" to="." method="focus_next"]

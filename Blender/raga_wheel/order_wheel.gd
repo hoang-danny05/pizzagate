@@ -9,6 +9,7 @@ var active : bool ## the condition of if the boi is on or not
 @onready var pivot : Node3D = $Pivot
 @onready var btn_right : Button = $right
 @onready var btn_left : Button = $left
+@onready var order_details : OrderDetails = $OrderDetails
 
 @export var switcher : CameraSwitcher
 @export var current_order : Order
@@ -44,8 +45,10 @@ func _on_interaction() -> void:
 	else:
 		_activate()
 
+## target for the fucker leaving
 func area_left(_area : Node3D) -> void:
-	_on_interaction()
+	if (active):
+		_deactivate()
 
 func _activate() -> void:
 	#switcher.adopt(player_cam)
@@ -117,5 +120,8 @@ func _focus_to_rotation(new_rotation: Vector3) -> void:
 
 func toggle_order_focus() -> void:
 	print("CURRENT GUY FOCUSED")
-	
+	if (current_order.order_data):
+		order_details.set_order_data(current_order.order_data)
+		order_details.activate()
+		pass
 	pass

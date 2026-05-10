@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8h8r7levsfn"]
+[gd_scene load_steps=5 format=3 uid="uid://c8h8r7levsfn"]
 
-[ext_resource type="Script" uid="uid://cjhlrjcye64ab" path="res://Blender/raga_wheel/OrderDetails/order_details.gd" id="1_k6w06"]
+[ext_resource type="Script" uid="uid://diikb4km476lf" path="res://Blender/raga_wheel/OrderDetails/order_details.gd" id="1_k6w06"]
+[ext_resource type="Theme" uid="uid://g6gs8tk84r4t" path="res://Blender/raga_wheel/OrderDetails/OrderTheme.tres" id="2_8gjsd"]
+[ext_resource type="AudioStream" uid="uid://d2hhv2frot25e" path="res://Assets/audio/ui/ui_paper1.mp3" id="2_jgjx8"]
+[ext_resource type="Texture2D" uid="uid://bjj35hp88m7gt" path="res://Assets/2d/concept/bufferfish_big.jpeg" id="3_xats8"]
 
 [node name="OrderDetails" type="Control"]
 layout_mode = 3
@@ -10,20 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6w06")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -39,5 +28,36 @@ offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -258.0
+offset_right = -21.0
+offset_bottom = -235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8gjsd")
+text = "ORDER #: FACK"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 161.0
+offset_right = 656.0
+offset_bottom = 377.54694
+texture = ExtResource("3_xats8")
+expand_mode = 5
+stretch_mode = 4
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ColorRect")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="FocusPaper" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_jgjx8")
