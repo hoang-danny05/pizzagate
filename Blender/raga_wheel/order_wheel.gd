@@ -2,7 +2,10 @@ extends Node3D
 
 var rotation_tween : Tween
 var player_cam : Camera3D
-var active : bool ## the condition of if the boi is on or not
+## the condition of if the UI is focused at the moment.
+var active : bool 
+## the condition for if the sub UI for orders are focused at the moment
+var order_focused : bool = false
 
 @onready var interaction_controller : InteractableComponent = $InteractableComponent
 @onready var camera : Camera3D = $EpicCamera
@@ -41,7 +44,7 @@ func _on_interaction() -> void:
 	if(switcher._tween and switcher._tween.is_running()):
 		return
 	if (active):
-		_deactivate()
+		toggle_order_focus()
 	else:
 		_activate()
 
@@ -73,6 +76,7 @@ func _deactivate() -> void:
 	btn_right.visible = false
 	btn_left.visible = false
 	Global.mouse_mode_pop_and_apply()
+	order_details._deactivate()
 	
 	
 	

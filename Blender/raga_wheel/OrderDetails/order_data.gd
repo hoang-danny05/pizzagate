@@ -5,7 +5,7 @@ class_name OrderData
 ## and provide a good interface to access it. 
 
 ## the string to describe the order (order number)
-@export var order_name : String 
+@export var order_title : String 
 ## the boss name (ex: BUFFERFISH)
 @export var dish_name : String 
 ## description of the boss

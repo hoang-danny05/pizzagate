@@ -4,5 +4,9 @@
 
 [resource]
 script = ExtResource("1_wf3pb")
-target_level = "<null>"
+order_title = "ORDER #1"
+dish_name = "BUFFERFISH"
+description = "From legend, he rises from the ashes. "
+target_level = "res://Levels/Level2/level2.tscn"
+thumbnail = "<null>"
 metadata/_custom_type_script = "uid://blhstm6p7ybnv"

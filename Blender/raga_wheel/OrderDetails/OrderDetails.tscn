@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8h8r7levsfn"]
+[gd_scene load_steps=6 format=3 uid="uid://c8h8r7levsfn"]
 
 [ext_resource type="Script" uid="uid://diikb4km476lf" path="res://Blender/raga_wheel/OrderDetails/order_details.gd" id="1_k6w06"]
 [ext_resource type="Theme" uid="uid://g6gs8tk84r4t" path="res://Blender/raga_wheel/OrderDetails/OrderTheme.tres" id="2_8gjsd"]
-[ext_resource type="AudioStream" uid="uid://d2hhv2frot25e" path="res://Assets/audio/ui/ui_paper1.mp3" id="2_jgjx8"]
 [ext_resource type="Texture2D" uid="uid://bjj35hp88m7gt" path="res://Assets/2d/concept/bufferfish_big.jpeg" id="3_xats8"]
+[ext_resource type="AudioStream" uid="uid://dymc6nrw60vnt" path="res://Assets/audio/ui/ui_paper2.mp3" id="4_8gjsd"]
+[ext_resource type="AudioStream" uid="uid://trw3isbmkp8f" path="res://Assets/audio/ui/ui_paper3.mp3" id="4_xats8"]
 
 [node name="OrderDetails" type="Control"]
 layout_mode = 3
@@ -14,50 +15,146 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6w06")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.50200003
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.50200003
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -269.0
-offset_right = 164.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -160.30402
+offset_top = -306.0
+offset_right = 172.69598
+offset_bottom = 295.0
+theme = ExtResource("2_8gjsd")
 
-[node name="Label" type="Label" parent="."]
+[node name="Background" type="ColorRect" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+
+[node name="OrderTitle" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -138.0
-offset_top = -258.0
-offset_right = -21.0
-offset_bottom = -235.0
+offset_left = -144.0
+offset_top = -254.0
+offset_right = 3.0
+offset_bottom = -231.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_8gjsd")
-text = "ORDER #: FACK"
+theme_override_font_sizes/font_size = 12
+text = "ORDER #: DEFAULT"
+
+[node name="ColorRect" type="ColorRect" parent="OrderTitle"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 17.0
+offset_right = 298.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="DishName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 24.0
+offset_right = 1.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8gjsd")
+theme_override_font_sizes/font_size = 18
+text = "1 BUFFERFISH"
+
+[node name="ColorRect" type="ColorRect" parent="DishName"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 305.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 1)
+
+[node name="SpecialNotesTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 54.0
+offset_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8gjsd")
+theme_override_font_sizes/font_size = 14
+text = "SPECIAL NOTES"
+
+[node name="SpecialNotesContent" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 79.0
+offset_right = 157.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8gjsd")
+theme_override_font_sizes/font_size = 10
+text = "hello there are special notes there that are mant to wrap around if its too long or has something else idk but please work"
+autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 161.0
-offset_right = 656.0
-offset_bottom = 377.54694
+offset_left = 484.0
+offset_top = 109.0
+offset_right = 648.0
+offset_bottom = 325.54694
 texture = ExtResource("3_xats8")
 expand_mode = 5
 stretch_mode = 4
 
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = 251.0
+offset_right = 162.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Cooking ->"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../ColorRect")
+root_node = NodePath("../PanelContainer/Background")
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="FocusPaper" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("2_jgjx8")
+stream = ExtResource("4_xats8")
+max_polyphony = 2
+
+[node name="UnfocusPaper" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_8gjsd")
+pitch_scale = 0.5
+max_polyphony = 2
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
