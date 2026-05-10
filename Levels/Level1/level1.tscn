@@ -88,7 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
 target_level = "res://Levels/Level2/level2.tscn"
 tooltip_text = "Press E to go to level 2"
 
-[node name="StartingPoint" type="Node3D" parent="."]
+[node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 
 [node name="OrderWheel" parent="." node_paths=PackedStringArray("switcher") instance=ExtResource("4_bf8gk")]
