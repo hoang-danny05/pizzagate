@@ -1,11 +1,13 @@
 extends Node3D
 class_name Clickable
+## Describes a clickable 3D object that acts like a UI element
 
+## Called when the object is clicked on
 signal focus_to_me(Clickable)
 
-#signal mouse_entered
-@onready var mesh : CSGBox3D = $CSGBox3D
-@onready var collision : StaticBody3D = $StaticBody3D
+
+var mesh : CSGBox3D
+var collision : StaticBody3D 
 @export var focus_material : Material
 @export var next_item : Clickable ## like a double linked list, next
 @export var prev_item : Clickable ## like a double linked list, prev
@@ -15,6 +17,8 @@ var button_down : bool = false
 
 
 func _ready() -> void:
+	mesh = $CSGBox3D
+	collision = $StaticBody3D
 	collision.mouse_entered.connect(_on_hovered)
 	collision.mouse_exited.connect(_on_exited)
 	init_material = mesh.material

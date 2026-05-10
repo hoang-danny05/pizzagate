@@ -1,7 +1,8 @@
 extends Node3D
+class_name SceneSwitcher
 
 var interaction_controller : InteractableComponent
-@export_file_path var target_level
+@export_file_path("*.tscn") var target_level
 @export var tooltip_text : String
 
 
