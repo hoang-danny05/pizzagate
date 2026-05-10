@@ -15,6 +15,7 @@ var active : bool ## the condition of if the boi is on or not
 
 func _ready() -> void:
 	interaction_controller.onInteraction.connect(_on_interaction)
+	interaction_controller.collision_area.body_exited.connect(area_left)
 	
 	player_cam = get_viewport().get_camera_3d() # assuming the player cam is the default active one
 	
@@ -35,13 +36,16 @@ func _ready() -> void:
 
 func _on_interaction() -> void:
 	# skip interaction if tween is active
+	print("interaction recieved")
 	if(switcher._tween and switcher._tween.is_running()):
 		return
 	if (active):
 		_deactivate()
 	else:
 		_activate()
-	
+
+func area_left(_area : Node3D) -> void:
+	_on_interaction()
 
 func _activate() -> void:
 	#switcher.adopt(player_cam)
