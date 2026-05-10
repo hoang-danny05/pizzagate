@@ -45,10 +45,15 @@ func _on_interaction() -> void:
 	else:
 		_activate()
 
-## target for the fucker leaving
+## called when the dude leaves
 func area_left(_area : Node3D) -> void:
 	if (active):
 		_deactivate()
+	## deactivate if the player is trying to be a chud
+	elif (switcher._tween and switcher._tween.is_running()):
+		await switcher._tween.finished
+		_deactivate()
+			
 
 func _activate() -> void:
 	#switcher.adopt(player_cam)
@@ -59,16 +64,15 @@ func _activate() -> void:
 	#switcher.adopt_current()
 	Global.mouse_mode_push(Input.mouse_mode)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	print("Activated!")
 	
 
 
 func _deactivate() -> void:
+	await switcher.blend_to(player_cam) 
 	active = false
 	btn_right.visible = false
 	btn_left.visible = false
 	Global.mouse_mode_pop_and_apply()
-	switcher.blend_to(player_cam) 
 	
 	
 	
