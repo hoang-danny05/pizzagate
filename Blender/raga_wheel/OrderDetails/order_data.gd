@@ -22,7 +22,7 @@ class_name OrderData
  
 ## the thumbnail of the boss of the level
 ## scary factor
-@export_file_path("*.tres") var thumbnail 
+@export_file_path var thumbnail 
 
 
 ## @experimental: Not implemented yet until we implement Saves

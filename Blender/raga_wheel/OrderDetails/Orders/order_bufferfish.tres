@@ -6,7 +6,8 @@
 script = ExtResource("1_wf3pb")
 order_title = "ORDER #1"
 dish_name = "BUFFERFISH"
-description = "From legend, he rises from the ashes. "
+description = "From legend, he rises from the ashes. He is the one and only bufferfish. Dread him. Run from him. Bufferfish always arrives."
+difficulty = 5
 target_level = "res://Levels/Level2/level2.tscn"
-thumbnail = "<null>"
+thumbnail = "res://Assets/2d/concept/bufferfish_big.jpeg"
 metadata/_custom_type_script = "uid://blhstm6p7ybnv"

@@ -40,7 +40,7 @@ func _ready() -> void:
 
 func _on_interaction() -> void:
 	# skip interaction if tween is active
-	print("interaction recieved")
+	#print("interaction recieved")
 	if(switcher._tween and switcher._tween.is_running()):
 		return
 	if (active):
@@ -137,7 +137,7 @@ func _focus_to_rotation(new_rotation: Vector3) -> void:
 	rotation_tween.tween_property(pivot, "rotation", new_rotation * -1, 0.5)
 
 func toggle_order_focus() -> void:
-	print("CURRENT GUY FOCUSED")
+	#print("CURRENT GUY FOCUSED")
 	if (current_order.order_data):
 		order_details.set_order_data(current_order.order_data)
 		order_details.toggle_active()

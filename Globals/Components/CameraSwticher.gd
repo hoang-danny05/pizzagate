@@ -40,6 +40,8 @@ func blend_to(target: Camera3D, duration := 0.7) -> void:
 	#print("global:", target.global_transform, _current.get_path())
 	#print("local :", _adopted.transform, _adopted.get_path())
 	#print("equality:", target == _adopted)
+	if (!is_inside_tree()):
+		return
 
 	if not target or target == _current: 
 		return

@@ -35,6 +35,13 @@ func _deactivate():
 
 ## using the current order data, it is rendered
 func render_order_data():
+	$OrderTitle.text = order_data.order_title
+	$DishName.text = order_data.dish_name
+	$SpecialNotesContent.text = order_data.description
+	#difficlty
+	#image
+	var img = load(order_data.thumbnail)
+	$ImageContainer/TextureRect.texture = img
 	pass
 
 func set_order_data(new_order : OrderData):
@@ -44,6 +51,7 @@ func set_order_data(new_order : OrderData):
 			# Do the transition to different orders!
 			pass
 	order_data = new_order
+	render_order_data()
 
 
 func _on_start_button_pressed() -> void:
