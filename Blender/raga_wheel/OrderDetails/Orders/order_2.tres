@@ -8,6 +8,6 @@ order_title = "ORDER #2"
 dish_name = "SIR. SWISS"
 description = "Master of Mozzerella, this dude commands the savory taste buds. A great support for a dish. No relation do d3rlord. "
 difficulty = 2
-target_level = "res://Levels/Level1/level1.tscn"
+target_level = "res://Levels/Level3/level3.tscn"
 thumbnail = "res://Assets/2d/concept/ch4ddar_lord.jpeg"
 metadata/_custom_type_script = "uid://blhstm6p7ybnv"

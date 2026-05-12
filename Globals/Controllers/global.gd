@@ -4,6 +4,8 @@ extends Node
 # Standard -> snake_case
 # naming : [general purpose]_[specific function]
 
+#region Mouse mode helper functions
+
 # of Input.MouseMode
 @export var mouse_mode_stack : Array = []
 
@@ -21,6 +23,8 @@ func mouse_mode_pop_and_apply():
 	var mode = mouse_mode_stack.pop_back()
 	Input.mouse_mode = mode
 
+#endregion
+
 #region Audio related helper functions
 
 ## abstraction to play a sound effect with some volume and pitch variation
@@ -30,6 +34,9 @@ func audio_play_with_variation(
 	max_pitch: float = 1.0, 
 	min_volume_decibels : float = 0.0,
 	max_volume_decibels : float = 0.0):
+	if not audio_player.is_inside_tree():
+		print("[INFO]: Can't play audio, player was removed from scene tree")
+		return
 	audio_player.pitch_scale = randf_range(min_pitch, max_pitch)
 	audio_player.volume_db = randf_range(min_volume_decibels, max_volume_decibels)
 	audio_player.play()
