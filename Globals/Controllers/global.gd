@@ -37,3 +37,4 @@ func audio_play_with_variation(
 #endregion
 
 @export var game_controller : GameController
+@export var player_character : Armando

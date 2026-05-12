@@ -66,6 +66,7 @@ func _activate() -> void:
 	btn_left.visible = true
 	#switcher.adopt_current()
 	Global.mouse_mode_push(Input.mouse_mode)
+	Global.player_character.movement_enabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 
@@ -76,6 +77,7 @@ func _deactivate() -> void:
 	btn_right.visible = false
 	btn_left.visible = false
 	Global.mouse_mode_pop_and_apply()
+	Global.player_character.movement_enabled = true
 	order_details._deactivate()
 	
 	
