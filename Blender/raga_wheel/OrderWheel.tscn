@@ -95,5 +95,8 @@ icon = ExtResource("7_620px")
 
 [node name="OrderDetails" parent="." instance=ExtResource("8_15bpn")]
 
+[node name="player_seat" type="Marker3D" parent="."]
+transform = Transform3D(0.9140417, 0, 0.40562022, 0, 1, 0, -0.40562022, 0, 0.9140417, -0.7749958, 0.9922266, -0.7886419)
+
 [connection signal="pressed" from="left" to="." method="focus_prev"]
 [connection signal="pressed" from="right" to="." method="focus_next"]

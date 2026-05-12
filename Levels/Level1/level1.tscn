@@ -55,7 +55,7 @@ material = ExtResource("3_5ryn7")
 [node name="floor ahh floor" type="CSGBox3D" parent="the kitchen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9100466, 9.536743e-07, -0.18268776)
 use_collision = true
-size = Vector3(71.4975, 1, 64.07141)
+size = Vector3(71.497, 1, 64.071)
 material = SubResource("StandardMaterial3D_afh44")
 
 [node name="CSGBox3D_wood2" type="CSGBox3D" parent="the kitchen"]

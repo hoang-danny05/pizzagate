@@ -67,6 +67,8 @@ func _activate() -> void:
 	#switcher.adopt_current()
 	Global.mouse_mode_push(Input.mouse_mode)
 	Global.player_character.movement_enabled = false
+	## player goes to the side, but they start floatin a bit
+	Global.player_character.global_position = $player_seat.global_position
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 

@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	# every physics thing that depends on input should be after
 	# else it should be before
 	if not movement_enabled:
+		move_and_slide()
 		return
 	
 	# Handle jump and double jump
