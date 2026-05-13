@@ -7,6 +7,7 @@ class_name CameraSwitcher
 
 var _current: Camera3D
 var _adopted: Camera3D
+var _tween : Tween
 
 func _ready() -> void:
 	_current = _find_current_camera()
@@ -36,11 +37,14 @@ func cut_to(target: Camera3D) -> void:
 	blend_cam.current = false
 
 func blend_to(target: Camera3D, duration := 0.7) -> void:
-	print("global:", target.global_transform, _current.get_path())
-	print("local :", _adopted.transform, _adopted.get_path())
-	print("equality:", target == _adopted)
+	#print("global:", target.global_transform, _current.get_path())
+	#print("local :", _adopted.transform, _adopted.get_path())
+	#print("equality:", target == _adopted)
+	if (!is_inside_tree()):
+		return
 
-	if not target or target == _current: return
+	if not target or target == _current: 
+		return
 	# Pose BlendCam at current
 	blend_cam.global_position = _current.global_position
 	blend_cam.fov = _current.fov
@@ -48,12 +52,15 @@ func blend_to(target: Camera3D, duration := 0.7) -> void:
 	blend_cam.far = _current.far
 	blend_cam.rotation = _current.rotation
 	blend_cam.current = true
+	
+	if (_tween and _tween.is_running()):
+		_tween.stop()
 
-	var tw := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tw.tween_property(blend_cam, "global_position", target.global_position, duration)
-	tw.parallel().tween_property(blend_cam, "fov", target.fov, duration)
-	tw.parallel().tween_property(blend_cam, "global_rotation", target.global_rotation, duration)
-	await tw.finished
+	_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(blend_cam, "global_position", target.global_position, duration)
+	_tween.parallel().tween_property(blend_cam, "fov", target.fov, duration)
+	_tween.parallel().tween_property(blend_cam, "global_rotation", target.global_rotation, duration)
+	await _tween.finished
 
 	cut_to(target)
 

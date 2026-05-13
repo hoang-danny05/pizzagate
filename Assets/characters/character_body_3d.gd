@@ -1,4 +1,6 @@
 extends CharacterBody3D
+class_name Armando 
+## Yes, i want to name the player character "Armando" internally
 
 
 const SPEED = 5.0
@@ -18,8 +20,11 @@ var sprint_modi = 1
 var has_double_jumped: bool = false
 var mouse_sens = 0.01
 
-# The last input direction the body is supposed to face towards.
-# This is a variable so it will still finish rotating even if there's no more player input.
+
+## determines if player input is allowed to control the character
+var movement_enabled = true
+## The last input direction the body is supposed to face towards.
+## This is a variable so it will still finish rotating even if there's no more player input.
 var target_body_angle: float = 0.0
 var godmode := false
 
@@ -27,6 +32,7 @@ func _ready():
 	# if a player exists, they will hold the input hostage. 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	GGS.setting_applied.connect(_on_setting_applied)
+	Global.player_character = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -44,12 +50,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		sprint_modi = 1
 
 func _physics_process(delta: float) -> void:
+	
+
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
 		has_double_jumped = false
-
+	
+	# Skips everything after.
+	# every physics thing that depends on input should be after
+	# else it should be before
+	if not movement_enabled:
+		move_and_slide()
+		return
+	
 	# Handle jump and double jump
 	if Input.is_action_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

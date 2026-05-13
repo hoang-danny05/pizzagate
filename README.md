@@ -15,6 +15,8 @@ Blender 5.0.1+
 
 [Krita](https://krita.org/en/) for making 2d assets (aka drawing)
 
+[Fonts](https://fontsource.org/) Find some here. I didn't use any (yet).
+
 ### Dev notes
 
 Collison masks:

@@ -12,13 +12,16 @@ func _ready() -> void:
 
 # yeah.
 # So it's actually always active, might be tanking performance?
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("ui_toggle")):
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventKey and event.is_action_pressed("ui_cancel")):
 		visible = ! visible;
 		settings_toggled.emit(visible)
 		if visible:
 			get_tree().paused = true
+			Global.mouse_mode_push(Input.mouse_mode)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			get_tree().paused = false
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Global.mouse_mode_pop_and_apply()
+		get_viewport().set_input_as_handled()
+			

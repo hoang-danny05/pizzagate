@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://g14olq00nh6k"]
+
+[ext_resource type="Texture2D" uid="uid://ca7x0hrefyf0b" path="res://Assets/2d/ui/two_parties_in_america_be_like.png" id="1_yq4a4"]
+
+[resource]
+atlas = ExtResource("1_yq4a4")
+region = Rect2(0, 0, 32, 32)

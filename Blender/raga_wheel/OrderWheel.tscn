@@ -1,21 +1,102 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3naryvo7tkbu"]
+[gd_scene load_steps=13 format=3 uid="uid://b3naryvo7tkbu"]
 
 [ext_resource type="Script" uid="uid://dcrgx66g0lfqb" path="res://Blender/raga_wheel/order_wheel.gd" id="1_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/interactible/InteractableComponent.tscn" id="2_7kvwu"]
 [ext_resource type="PackedScene" uid="uid://da22w3qcmb5kx" path="res://Blender/raga_wheel/order_wheel_model.tscn" id="2_uy4pa"]
-[ext_resource type="Script" uid="uid://cnvu0h16nr1u2" path="res://Blender/raga_wheel/input_thief.gd" id="4_uy4pa"]
+[ext_resource type="PackedScene" uid="uid://ci7y6fj5xctnm" path="res://Blender/raga_wheel/Order/Order.tscn" id="4_620px"]
+[ext_resource type="Resource" uid="uid://7buhnq480xt6" path="res://Blender/raga_wheel/OrderDetails/Orders/order_bufferfish.tres" id="4_sku7b"]
+[ext_resource type="Material" uid="uid://ccjbl207guytn" path="res://Assets/materials/materials/hover_ui/order_item.tres" id="5_15bpn"]
+[ext_resource type="Texture2D" uid="uid://g14olq00nh6k" path="res://Assets/2d/ui/left.tres" id="6_cjpb3"]
+[ext_resource type="Resource" uid="uid://2lpbss2sg7wd" path="res://Blender/raga_wheel/OrderDetails/Orders/order_2.tres" id="6_vfk18"]
+[ext_resource type="Texture2D" uid="uid://b0dntgbqukapr" path="res://Assets/2d/ui/right.tres" id="7_620px"]
+[ext_resource type="PackedScene" uid="uid://c8h8r7levsfn" path="res://Blender/raga_wheel/OrderDetails/OrderDetails.tscn" id="8_15bpn"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vfk18"]
+keycode = 76
+
+[sub_resource type="Shortcut" id="Shortcut_6mk7v"]
+events = [SubResource("InputEventKey_vfk18")]
 
 [node name="OrderWheel" type="Node3D"]
 script = ExtResource("1_7kvwu")
-
-[node name="OrderWheel" parent="." instance=ExtResource("2_uy4pa")]
 
 [node name="InteractableComponent" parent="." instance=ExtResource("2_7kvwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7972685, 0)
 label_text = "YOOO"
 
 [node name="EpicCamera" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5680377, -0.68689275)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5680377, -0.9021438)
+fov = 33.5
 
-[node name="InputThief" type="Node3D" parent="."]
-script = ExtResource("4_uy4pa")
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Order" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.557, -0.412)
+order_data = ExtResource("4_sku7b")
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order2")
+prev_item = NodePath("../Order3")
+
+[node name="Order2" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(0.70090926, 0, 0.71325046, 0, 1, 0, -0.71325046, 0, 0.70090926, -0.264, 0.557, -0.31)
+order_data = ExtResource("6_vfk18")
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order3")
+prev_item = NodePath("../Order")
+
+[node name="Order3" parent="Pivot" node_paths=PackedStringArray("next_item", "prev_item") groups=["order_items"] instance=ExtResource("4_620px")]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -0.408, 0.552, -0.004)
+focus_material = ExtResource("5_15bpn")
+next_item = NodePath("../Order")
+prev_item = NodePath("../Order2")
+
+[node name="OrderWheelMesh" parent="Pivot" instance=ExtResource("2_uy4pa")]
+
+[node name="left" type="Button" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("6_cjpb3")
+
+[node name="right" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = -10.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "go to next order, dumbass"
+focus_behavior_recursive = 2
+button_mask = 7
+shortcut = SubResource("Shortcut_6mk7v")
+icon = ExtResource("7_620px")
+
+[node name="OrderDetails" parent="." instance=ExtResource("8_15bpn")]
+
+[node name="player_seat" type="Marker3D" parent="."]
+transform = Transform3D(0.9140417, 0, 0.40562022, 0, 1, 0, -0.40562022, 0, 0.9140417, -0.7749958, 0.9922266, -0.7886419)
+
+[connection signal="pressed" from="left" to="." method="focus_prev"]
+[connection signal="pressed" from="right" to="." method="focus_next"]

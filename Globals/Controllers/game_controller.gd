@@ -19,7 +19,7 @@ var use_multithreading = true
 
 
 func _ready() -> void:
-	#Globals.game_controller = self
+	Global.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
 
 
