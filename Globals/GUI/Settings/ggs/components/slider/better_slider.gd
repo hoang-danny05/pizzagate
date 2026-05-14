@@ -2,7 +2,7 @@
 @icon("res://Global/GUI/Settings/ggs/components/slider/slider.svg")
 extends GGSComponent
 
-@onready var _slider: HSlider = $Slider
+@onready var _slider: HSlider = $HBoxContainer/Slider
 
 
 func _ready() -> void:

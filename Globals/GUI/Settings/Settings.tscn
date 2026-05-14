@@ -5,10 +5,10 @@
 [ext_resource type="Theme" uid="uid://da3h0kv3unisv" path="res://Globals/GUI/Settings/SettingsUITheme.tres" id="2_x1nv6"]
 [ext_resource type="Script" uid="uid://bmbdl6887xhmx" path="res://Globals/GUI/Settings/quit_button.gd" id="4_n0b7a"]
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
+[ext_resource type="PackedScene" uid="uid://6fourcox2l3w" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.tscn" id="5_qgrel"]
 [ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
-[ext_resource type="PackedScene" uid="uid://ds06mwhee8ygm" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.tscn" id="8_ppugv"]
 [ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/audio_volume.tres" id="9_vex8i"]
 [ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="10_qgrel"]
 
@@ -151,7 +151,7 @@ theme_override_constants/margin_bottom = 20
 [node name="TabContainer" type="TabContainer" parent="Menu/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
-current_tab = 2
+current_tab = 1
 
 [node name="Display" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 visible = false
@@ -179,7 +179,6 @@ popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
 [node name="Audio" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -188,21 +187,17 @@ visible = false
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
-text = "Audio"
+text = "sir this is a mcdonalds"
 
-[node name="Volume" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("8_ppugv")]
+[node name="Volume" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("5_qgrel")]
 layout_mode = 2
-tooltip_text = "Master Volume"
-theme = ExtResource("2_x1nv6")
 setting = ExtResource("9_vex8i")
 
-[node name="Slider" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume" index="0"]
-size_flags_horizontal = 0
-theme = ExtResource("2_x1nv6")
-tick_count = 3
-ticks_on_borders = true
+[node name="OptionalLabel" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume/HBoxContainer" index="0"]
+text = "Master Volume"
 
 [node name="Gameplay Flavor" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

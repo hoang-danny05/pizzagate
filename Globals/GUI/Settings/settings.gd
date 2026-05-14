@@ -39,4 +39,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			animation.play("peace_out")
 			await animation.animation_finished
 			visible = false
+			
 		get_viewport().set_input_as_handled()

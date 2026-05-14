@@ -1,11 +1,23 @@
 [gd_scene load_steps=2 format=3 uid="uid://6fourcox2l3w"]
 
-[ext_resource type="Script" uid="uid://bxlftsqgacfqk" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.gd" id="1_y85hu"]
+[ext_resource type="Script" uid="uid://d2vevpf3i0ur2" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.gd" id="1_y85hu"]
 
 [node name="BetterSlider" type="MarginContainer"]
 offset_right = 841.0
 offset_bottom = 50.0
 script = ExtResource("1_y85hu")
 
-[node name="Slider" type="HSlider" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="OptionalLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "Slider"
+
+[node name="Slider" type="HSlider" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
