@@ -1,5 +1,7 @@
 extends Node
 class_name GameController
+## class responsible for switching scenes
+## root of everything, always in scene tree
 
 signal progress_changed(progress : float)
 signal load_finished

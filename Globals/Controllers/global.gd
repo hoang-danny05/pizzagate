@@ -1,4 +1,5 @@
 extends Node
+## everything you need global scoped.
 
 # I guess this is where we put global stuff shared across nodes
 # Standard -> snake_case

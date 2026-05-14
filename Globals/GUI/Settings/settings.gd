@@ -1,8 +1,11 @@
 extends Control
 
+@onready var animation = $AnimationPlayer
+
+
 # The global settings class. 
 # Literally just controls what you do when you open and close settings.
-signal settings_toggled(settings_active : bool)
+#signal settings_toggled(settings_active : bool)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -10,18 +13,22 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
+
 # yeah.
 # So it's actually always active, might be tanking performance?
 func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventKey and event.is_action_pressed("ui_cancel")):
 		visible = ! visible;
-		settings_toggled.emit(visible)
+		#settings_toggled.emit(visible)
 		if visible:
+			# activate
 			get_tree().paused = true
 			Global.mouse_mode_push(Input.mouse_mode)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			animation.play("flick_up")
+			
 		else:
+			# deactivate
 			get_tree().paused = false
 			Global.mouse_mode_pop_and_apply()
 		get_viewport().set_input_as_handled()
-			
