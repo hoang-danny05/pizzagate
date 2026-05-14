@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=17 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.1415927]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -73,10 +73,39 @@ tracks/1/keys = {
 "values": [Vector2(572, 59)]
 }
 
+[sub_resource type="Animation" id="Animation_n7xar"]
+resource_name = "peace_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(572, 59), Vector2(572, 667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.1415927]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n7xar"]
 _data = {
 &"RESET": SubResource("Animation_b5rm6"),
-&"flick_up": SubResource("Animation_qgrel")
+&"flick_up": SubResource("Animation_qgrel"),
+&"peace_out": SubResource("Animation_n7xar")
 }
 
 [node name="Settings" type="Control"]
@@ -97,9 +126,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -580.0
 offset_top = -589.0
+offset_bottom = -0.00048828125
 grow_horizontal = 0
 grow_vertical = 0
-rotation = 3.1415927
 pivot_offset = Vector2(580, 589)
 
 [node name="PanelContainer" type="PanelContainer" parent="Menu"]
