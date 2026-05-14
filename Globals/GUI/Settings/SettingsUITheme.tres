@@ -1,6 +1,45 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://da3h0kv3unisv"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://da3h0kv3unisv"]
 
 [ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="1_lmo7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cblim"]
+bg_color = Color(0.8509804, 0.7019608, 0.4745098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.7004, 0.476, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6kf2"]
+bg_color = Color(0.9529412, 0.80784315, 0.53333336, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.7004, 0.476, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfnc8"]
+bg_color = Color(0.74, 0.50098, 0.31820002, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.7004, 0.476, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmo7f"]
 bg_color = Color(0.9529412, 0.80784315, 0.53333336, 1)
@@ -24,8 +63,16 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 
 [resource]
-Button/constants/outline_size = 6
+Button/colors/font_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
+Button/colors/font_focus_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
+Button/colors/font_hover_color = Color(0.70980394, 0.24705882, 0.30980393, 1)
+Button/colors/font_hover_pressed_color = Color(0.70980394, 0.24705882, 0.30980393, 1)
+Button/colors/font_pressed_color = Color(0.70980394, 0.24705882, 0.30980393, 1)
 Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_lmo7f")
+Button/styles/hover = SubResource("StyleBoxFlat_cblim")
+Button/styles/normal = SubResource("StyleBoxFlat_b6kf2")
+Button/styles/pressed = SubResource("StyleBoxFlat_dfnc8")
 Label/colors/font_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
 Label/constants/line_spacing = 4
 Label/constants/outline_size = 0

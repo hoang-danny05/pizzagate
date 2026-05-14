@@ -27,20 +27,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ypv10")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -580.0
+offset_top = -589.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(580, 589)
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = -40.0
-offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_x1nv6")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/PanelContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_constants/margin_left = 20
@@ -48,28 +57,28 @@ theme_override_constants/margin_top = 140
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer"]
+[node name="TabContainer" type="TabContainer" parent="Menu/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 current_tab = 2
 
-[node name="Display" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+[node name="Display" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Display" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Display"]
+[node name="Display" type="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display"]
 visible = false
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Display"
 
-[node name="DisplayMode" parent="PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("6_u3dfj")]
+[node name="DisplayMode" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("6_u3dfj")]
 layout_mode = 2
 setting = ExtResource("7_tto23")
 
-[node name="Btn" parent="PanelContainer/MarginContainer/TabContainer/Display/DisplayMode" index="0"]
+[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode" index="0"]
 item_count = 3
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
@@ -78,114 +87,107 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
-[node name="Audio" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+[node name="Audio" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Audio" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Audio"]
+[node name="Audio" type="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio"]
 visible = false
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Audio"
 
-[node name="Volume" parent="PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("8_ppugv")]
+[node name="Volume" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("8_ppugv")]
 layout_mode = 2
 tooltip_text = "Master Volume"
 theme = ExtResource("2_x1nv6")
 setting = ExtResource("9_vex8i")
 
-[node name="Slider" parent="PanelContainer/MarginContainer/TabContainer/Audio/Volume" index="0"]
+[node name="Slider" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume" index="0"]
 size_flags_horizontal = 0
 theme = ExtResource("2_x1nv6")
 tick_count = 3
 ticks_on_borders = true
 
-[node name="Gameplay Flavor" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+[node name="Gameplay Flavor" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Gameplay" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor"]
+[node name="Gameplay" type="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Gameplay"
 
-[node name="Godmode" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor" instance=ExtResource("7_qsdlf")]
+[node name="Godmode" parent="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor" instance=ExtResource("7_qsdlf")]
 layout_mode = 2
 setting = ExtResource("5_f4jdn")
 
-[node name="Btn" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode" index="0"]
+[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode" index="0"]
 theme = ExtResource("2_x1nv6")
 text = "Enable Lore Accurate Chef"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer"]
 visible = false
 layout_mode = 2
 
-[node name="custom_margin" type="ColorRect" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="custom_margin" type="ColorRect" parent="Menu/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="Menu"]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 61.0
-offset_right = 372.0
-offset_bottom = 122.0
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 319.0
+offset_bottom = 78.0
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "The Delicious"
 label_settings = ExtResource("2_6xrik")
 horizontal_alignment = 1
 
-[node name="Title" type="Label" parent="Title"]
-layout_mode = 0
-offset_left = 110.0
-offset_top = 44.0
-offset_right = 415.0
-offset_bottom = 117.0
+[node name="Title" type="Label" parent="Menu/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.117
+anchor_top = -0.89800006
+anchor_right = -2.117
+anchor_bottom = -0.89800006
+offset_left = 755.68506
+offset_top = 98.778
+offset_right = 1060.685
+offset_bottom = 171.778
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "SETTINGS MENU"
 label_settings = SubResource("LabelSettings_b5rm6")
 horizontal_alignment = 1
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="Menu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -114.0
-offset_right = 56.0
-offset_bottom = -73.0
+offset_left = -361.0
+offset_top = -93.0
+offset_right = -249.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_x1nv6")
 text = "QUIT GAME"
 script = ExtResource("4_n0b7a")
 
-[node name="Background" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 61.0
-offset_top = 35.0
-offset_right = -64.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.16924527, 0.1692453, 0.16924527, 0.5058824)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
-[editable path="PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
-[editable path="PanelContainer/MarginContainer/TabContainer/Audio/Volume"]
-[editable path="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]
