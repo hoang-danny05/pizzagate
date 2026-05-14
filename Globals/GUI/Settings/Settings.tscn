@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=13 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
@@ -10,6 +10,13 @@
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
 [ext_resource type="PackedScene" uid="uid://ds06mwhee8ygm" path="res://Globals/GUI/Settings/ggs/components/slider/component_slider.tscn" id="8_ppugv"]
 [ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/audio_volume.tres" id="9_vex8i"]
+[ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="10_qgrel"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5rm6"]
+line_spacing = 4.0
+font = ExtResource("10_qgrel")
+font_size = 48
+font_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -25,57 +32,44 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = 60.0
-offset_right = -60.0
-offset_bottom = -60.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_x1nv6")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 140
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
-theme_override_font_sizes/font_size = 20
-text = "Epic Ass Settings"
-label_settings = ExtResource("2_6xrik")
-horizontal_alignment = 1
+current_tab = 2
 
-[node name="Gameplay" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Display" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
-theme = ExtResource("2_x1nv6")
-theme_override_font_sizes/font_size = 20
-text = "Gameplay"
+metadata/_tab_index = 0
 
-[node name="Godmode" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_qsdlf")]
-layout_mode = 2
-setting = ExtResource("5_f4jdn")
-
-[node name="Btn" parent="PanelContainer/MarginContainer/VBoxContainer/Godmode" index="0"]
-theme = ExtResource("2_x1nv6")
-text = "Enable Lore Accurate Chef"
-
-[node name="Display" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Display" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Display"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Display"
 
-[node name="DisplayMode" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_u3dfj")]
+[node name="DisplayMode" parent="PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("6_u3dfj")]
 layout_mode = 2
 setting = ExtResource("7_tto23")
 
-[node name="Btn" parent="PanelContainer/MarginContainer/VBoxContainer/DisplayMode" index="0"]
+[node name="Btn" parent="PanelContainer/MarginContainer/TabContainer/Display/DisplayMode" index="0"]
 item_count = 3
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
@@ -84,23 +78,80 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
-[node name="Audio" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Audio" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Audio" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Audio"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "Audio"
 
-[node name="Volume" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("8_ppugv")]
+[node name="Volume" parent="PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("8_ppugv")]
 layout_mode = 2
 tooltip_text = "Master Volume"
 theme = ExtResource("2_x1nv6")
 setting = ExtResource("9_vex8i")
 
-[node name="Slider" parent="PanelContainer/MarginContainer/VBoxContainer/Volume" index="0"]
+[node name="Slider" parent="PanelContainer/MarginContainer/TabContainer/Audio/Volume" index="0"]
 size_flags_horizontal = 0
 theme = ExtResource("2_x1nv6")
 tick_count = 3
 ticks_on_borders = true
+
+[node name="Gameplay Flavor" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Gameplay" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor"]
+layout_mode = 2
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "Gameplay"
+
+[node name="Godmode" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor" instance=ExtResource("7_qsdlf")]
+layout_mode = 2
+setting = ExtResource("5_f4jdn")
+
+[node name="Btn" parent="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode" index="0"]
+theme = ExtResource("2_x1nv6")
+text = "Enable Lore Accurate Chef"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="custom_margin" type="ColorRect" parent="PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 61.0
+offset_right = 372.0
+offset_bottom = 122.0
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "The Delicious"
+label_settings = ExtResource("2_6xrik")
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 44.0
+offset_right = 415.0
+offset_bottom = 117.0
+theme = ExtResource("2_x1nv6")
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS MENU"
+label_settings = SubResource("LabelSettings_b5rm6")
+horizontal_alignment = 1
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 1
@@ -135,6 +186,6 @@ color = Color(0.16924527, 0.1692453, 0.16924527, 0.5058824)
 
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
 
-[editable path="PanelContainer/MarginContainer/VBoxContainer/Godmode"]
-[editable path="PanelContainer/MarginContainer/VBoxContainer/DisplayMode"]
-[editable path="PanelContainer/MarginContainer/VBoxContainer/Volume"]
+[editable path="PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
+[editable path="PanelContainer/MarginContainer/TabContainer/Audio/Volume"]
+[editable path="PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]

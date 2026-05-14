@@ -1,7 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://cpfcvocoddens"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cpfcvocoddens"]
+
+[ext_resource type="FontFile" uid="uid://6q5lsalatngw" path="res://Assets/2d/fonts/great-vibes_5.2.8/ttf/great-vibes-latin-400-normal.ttf" id="1_6jxtd"]
 
 [resource]
 line_spacing = 4.0
-font_size = 32
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+font = ExtResource("1_6jxtd")
+font_size = 48
+font_color = Color(0.6666667, 0.16862746, 0.24313726, 1)

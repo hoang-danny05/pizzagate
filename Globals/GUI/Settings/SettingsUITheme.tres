@@ -1,9 +1,45 @@
-[gd_resource type="Theme" format=3 uid="uid://da3h0kv3unisv"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://da3h0kv3unisv"]
+
+[ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="1_lmo7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmo7f"]
+bg_color = Color(0.9529412, 0.80784315, 0.53333336, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6a1g"]
+bg_color = Color(0.9843137, 0.9372549, 0.8745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts08r"]
+bg_color = Color(0.9529412, 0.80784315, 0.53333336, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dglsw"]
+bg_color = Color(0.9843137, 0.9372549, 0.8745098, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.9843137, 0.9372549, 0.8745098, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
 
 [resource]
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 16
+Label/colors/font_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
 Label/constants/line_spacing = 4
-Label/constants/outline_size = 8
+Label/constants/outline_size = 0
 Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_lmo7f")
 MarginContainer/constants/margin_bottom = 5
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lmo7f")
+TabContainer/colors/drop_mark_color = Color(0.41, 0.29520002, 0.31241995, 1)
+TabContainer/colors/font_hovered_color = Color(0.70980394, 0.24705882, 0.30980393, 1)
+TabContainer/colors/font_selected_color = Color(0.6666667, 0.16862746, 0.24313726, 1)
+TabContainer/colors/font_unselected_color = Color(0.75, 0.4275, 0.47587484, 1)
+TabContainer/font_sizes/font_size = 24
+TabContainer/fonts/font = ExtResource("1_lmo7f")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_g6a1g")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_ts08r")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_dglsw")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ts08r")
