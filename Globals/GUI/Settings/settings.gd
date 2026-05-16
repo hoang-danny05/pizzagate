@@ -14,6 +14,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Global.game_controller_blur_queue.append(on_blur_click)
 
 # yeah.
 # So it's actually always active, might be tanking performance?

@@ -107,7 +107,9 @@ func _input(event : InputEvent) -> void:
 		get_viewport().set_input_as_handled() # all other inputs are BLOCKED
 		
 	if event is InputEventKey and event.is_action_pressed("debug"):
-		print("Active State: ", active)
+		pass
+		# put debug stuff here if you want
+		#print("Active State: ", active)
 		
 		
 ########################################

@@ -31,7 +31,8 @@ func _ready() -> void:
 	set_process(false) # I won't be processing until you tell me to!
 	
 	# kind of an ugly pattern but we ball
-	blur_clicked.connect(settings_menu.on_blur_click)
+	blur_queue_flush()
+	#blur_clicked.connect(settings_menu.on_blur_click)
 
 
 
@@ -118,6 +119,17 @@ else: neither keep running nor delete
 
 #region blur
 signal blur_clicked
+
+## adds all items in the blur queue
+func blur_queue_flush():
+	while Global.game_controller_blur_queue:
+		var item = Global.game_controller_blur_queue.pop_back()
+		if item is Callable:
+			blur_clicked.connect(item)
+		else:
+			print("[ERR]: callable not assigned to queue!")
+	
+	
 
 func blur_enable():
 	## makes the blur component visible
