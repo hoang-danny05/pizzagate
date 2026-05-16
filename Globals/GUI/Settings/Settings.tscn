@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=18 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
@@ -7,9 +7,10 @@
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
 [ext_resource type="PackedScene" uid="uid://6fourcox2l3w" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.tscn" id="5_qgrel"]
 [ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
+[ext_resource type="Resource" uid="uid://rcenfc6lo701" path="res://Globals/GUI/Settings/ggs/game_settings/audio/sfx_volume.tres" id="7_b5rm6"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
-[ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/audio_volume.tres" id="9_vex8i"]
+[ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/master_volume.tres" id="9_vex8i"]
 [ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="10_qgrel"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b5rm6"]
@@ -192,12 +193,19 @@ theme = ExtResource("2_x1nv6")
 theme_override_font_sizes/font_size = 20
 text = "sir this is a mcdonalds"
 
-[node name="Volume" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("5_qgrel")]
+[node name="Master" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("5_qgrel")]
 layout_mode = 2
 setting = ExtResource("9_vex8i")
 
-[node name="OptionalLabel" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume/HBoxContainer" index="0"]
+[node name="OptionalLabel" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Master/HBoxContainer" index="0"]
 text = "Master Volume"
+
+[node name="SFX" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio" instance=ExtResource("5_qgrel")]
+layout_mode = 2
+setting = ExtResource("7_b5rm6")
+
+[node name="OptionalLabel" parent="Menu/PanelContainer/MarginContainer/TabContainer/Audio/SFX/HBoxContainer" index="0"]
+text = "Sound Effects"
 
 [node name="Gameplay Flavor" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 visible = false
@@ -281,5 +289,6 @@ libraries = {
 [connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
-[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Volume"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Master"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/SFX"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]
