@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs8mkkwwyram6"]
+
+[ext_resource type="Material" uid="uid://bgwxa7hp86x8h" path="res://Assets/materials/materials/blur_ui/blur.tres" id="1_1h17f"]
+[ext_resource type="Script" uid="uid://de0u7dtkf5p4h" path="res://Globals/GUI/Components/blur.gd" id="2_slmnf"]
+
+[node name="Blur" type="ColorRect"]
+material = ExtResource("1_1h17f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_slmnf")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

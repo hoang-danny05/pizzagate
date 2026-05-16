@@ -3,6 +3,7 @@ class_name SettingsMenu
 
 @export var active : bool
 @onready var animation = $AnimationPlayer
+@onready var blur = $Blur
 
 
 # The global settings class. 
@@ -14,7 +15,6 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	Global.game_controller_blur_queue.append(on_blur_click)
 
 # yeah.
 # So it's actually always active, might be tanking performance?
@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _activate():
 	visible = true
 	get_tree().paused = true
-	Global.game_controller.blur_enable()
+	blur.activate()
 	Global.mouse_mode_push(Input.mouse_mode)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	animation.play("flick_up")
@@ -43,7 +43,7 @@ func _activate():
 
 func _deactivate():
 	get_tree().paused = false
-	Global.game_controller.blur_disable()
+	blur.deactivate()
 	Global.mouse_mode_pop_and_apply()
 	animation.play("peace_out")
 	await animation.animation_finished

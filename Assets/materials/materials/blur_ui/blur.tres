@@ -4,4 +4,4 @@
 
 [resource]
 shader = ExtResource("1_xfhh1")
-shader_parameter/blur_size = Vector2(0.5, 0.5)
+shader_parameter/blur_size = Vector2(1, 1)

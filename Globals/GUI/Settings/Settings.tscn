@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=21 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
+[ext_resource type="PackedScene" uid="uid://bs8mkkwwyram6" path="res://Globals/GUI/Components/Blur.tscn" id="2_wh08j"]
 [ext_resource type="Theme" uid="uid://da3h0kv3unisv" path="res://Globals/GUI/Settings/SettingsUITheme.tres" id="2_x1nv6"]
 [ext_resource type="Script" uid="uid://bmbdl6887xhmx" path="res://Globals/GUI/Settings/quit_button.gd" id="4_n0b7a"]
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
-[ext_resource type="PackedScene" uid="uid://snlvoo81n41u" path="res://Globals/GUI/Settings/ggs/components/spinbox/component_spinbox_labeled.tscn" id="5_fecju"]
+[ext_resource type="PackedScene" uid="uid://snlvoo81n41u" path="res://Globals/GUI/Settings/ggs/components/spinbox/component_spinbox.tscn" id="5_fecju"]
 [ext_resource type="PackedScene" uid="uid://6fourcox2l3w" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.tscn" id="5_qgrel"]
 [ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
 [ext_resource type="Resource" uid="uid://e7k2t2j2tbk3" path="res://Globals/GUI/Settings/ggs/game_settings/display/max_fps.tres" id="6_wh08j"]
@@ -116,11 +117,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ypv10")
+
+[node name="Blur" parent="." instance=ExtResource("2_wh08j")]
+visible = false
+layout_mode = 1
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 1
@@ -129,10 +132,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 572.0
-offset_top = 59.0
-offset_right = 1152.0
-offset_bottom = 647.9995
+offset_left = -580.0
+offset_top = -589.0
+offset_bottom = -0.00048828125
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(580, 589)
@@ -295,6 +297,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_n7xar")
 }
 
+[connection signal="blur_clicked" from="Blur" to="." method="on_blur_click"]
 [connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]

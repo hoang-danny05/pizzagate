@@ -9,7 +9,6 @@ signal load_finished
 # global scoped stuff
 var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
 @onready var settings_menu : SettingsMenu = $Settings
-@onready var blur = $"blurry face"
 @onready var impact = $"impact"
 @onready var impact_timer = $"impact/timer"
 
@@ -30,9 +29,6 @@ func _ready() -> void:
 	Global.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
 	
-	# kind of an ugly pattern but we ball
-	blur_queue_flush()
-	#blur_clicked.connect(settings_menu.on_blur_click)
 
 
 
@@ -118,35 +114,17 @@ else: neither keep running nor delete
 	## ok what if i made the whole screen blur with a canvas item
 
 #region blur
-signal blur_clicked
-
 ## adds all items in the blur queue
-func blur_queue_flush():
-	while Global.game_controller_blur_queue:
-		var item = Global.game_controller_blur_queue.pop_back()
-		if item is Callable:
-			blur_clicked.connect(item)
-		else:
-			print("[ERR]: callable not assigned to queue!")
-	
-	
+#func blur_queue_flush():
+	#while Global.game_controller_blur_queue:
+		#var item = Global.game_controller_blur_queue.pop_back()
+		#if item is Callable:
+			#blur_clicked.connect(item)
+		#else:
+			#print("[ERR]: callable not assigned to queue!")
+	#
+	#
 
-func blur_enable():
-	## makes the blur component visible
-	## readable interface because why not
-	blur.visible = true
-
-func blur_disable():
-	blur.visible = false
-
-func _on_blur_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			blur.visible = false
-			blur_clicked.emit()
-			get_viewport().set_input_as_handled()
-		#print(event)
-	pass # Replace with function body.
 
 #endregion
 

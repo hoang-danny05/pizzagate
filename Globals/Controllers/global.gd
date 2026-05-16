@@ -47,5 +47,4 @@ func audio_play_with_variation(
 @export var game_controller : GameController
 ## Callables that we want to connect to the game controller before load
 ## apply with game_controller.blur_queue_flush or something like that
-@export var game_controller_blur_queue : Array
 @export var player_character : Armando

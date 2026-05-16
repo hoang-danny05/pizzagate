@@ -8,11 +8,9 @@ var tween : Tween
 
 @onready var focus_audio : AudioStreamPlayer = $Audio/FocusPaper
 @onready var unfocus_audio : AudioStreamPlayer = $Audio/UnfocusPaper
+@onready var blur = $Blur
 
 func _ready() -> void:
-	Global.game_controller_blur_queue.push_back(_on_background_pressed)
-	if (Global.game_controller):
-		Global.game_controller.blur_queue_flush()
 	_deactivate()
 	
 func toggle_active():
@@ -27,7 +25,8 @@ func _activate():
 		print("[ERR]: order_data was not set before displaying!")
 		return
 	Global.audio_play_with_variation(focus_audio, 0.9, 1.1)
-	Global.game_controller.blur_enable()
+	#blur.activate()
+	
 	active = true
 	visible = true
 
@@ -35,8 +34,7 @@ func _deactivate():
 	# only play if I was active
 	if active:
 		Global.audio_play_with_variation(unfocus_audio, 0.4, 0.6)
-	if (Global.game_controller):
-		Global.game_controller.blur_disable()
+	#blur.deactivate()
 	active = false
 	visible = false
 
