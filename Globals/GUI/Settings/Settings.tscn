@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=20 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
 [ext_resource type="Theme" uid="uid://da3h0kv3unisv" path="res://Globals/GUI/Settings/SettingsUITheme.tres" id="2_x1nv6"]
 [ext_resource type="Script" uid="uid://bmbdl6887xhmx" path="res://Globals/GUI/Settings/quit_button.gd" id="4_n0b7a"]
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
+[ext_resource type="PackedScene" uid="uid://snlvoo81n41u" path="res://Globals/GUI/Settings/ggs/components/spinbox/component_spinbox_labeled.tscn" id="5_fecju"]
 [ext_resource type="PackedScene" uid="uid://6fourcox2l3w" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.tscn" id="5_qgrel"]
 [ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
+[ext_resource type="Resource" uid="uid://e7k2t2j2tbk3" path="res://Globals/GUI/Settings/ggs/game_settings/display/max_fps.tres" id="6_wh08j"]
 [ext_resource type="Resource" uid="uid://rcenfc6lo701" path="res://Globals/GUI/Settings/ggs/game_settings/audio/sfx_volume.tres" id="7_b5rm6"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
@@ -155,10 +157,9 @@ theme_override_constants/margin_bottom = 20
 [node name="TabContainer" type="TabContainer" parent="Menu/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
-current_tab = 1
+current_tab = 0
 
 [node name="Display" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -182,7 +183,15 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
+[node name="SpinBox2" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("5_fecju")]
+layout_mode = 2
+setting = ExtResource("6_wh08j")
+
+[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/SpinBox2/HBoxContainer" index="0"]
+text = "Max FPS"
+
 [node name="Audio" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -289,6 +298,7 @@ libraries = {
 [connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/SpinBox2"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Master"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/SFX"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]
