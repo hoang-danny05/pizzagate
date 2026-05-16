@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://n3eb3xl55uow"]
+[gd_scene load_steps=6 format=3 uid="uid://n3eb3xl55uow"]
 
 [ext_resource type="Script" uid="uid://b67syrwit3hx0" path="res://Globals/Controllers/game_controller.gd" id="1_7462k"]
 [ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Hub/hub.tscn" id="1_vbidl"]
 [ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="2_7462k"]
 [ext_resource type="Material" uid="uid://bgwxa7hp86x8h" path="res://Assets/materials/materials/blur_ui/blur.tres" id="2_cicjh"]
+[ext_resource type="Material" uid="uid://cei0ye3ddwcpp" path="res://Assets/materials/vfx/impact.tres" id="5_yoqdf"]
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("current_scene")]
 script = ExtResource("1_7462k")
@@ -32,4 +33,18 @@ grow_vertical = 2
 [node name="Settings" parent="." instance=ExtResource("2_7462k")]
 visible = false
 
+[node name="impact" type="ColorRect" parent="."]
+visible = false
+material = ExtResource("5_yoqdf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="timer" type="Timer" parent="impact"]
+wait_time = 0.1
+
 [connection signal="gui_input" from="blurry face/ColorRect" to="." method="_on_blur_gui_input"]
+[connection signal="timeout" from="impact/timer" to="." method="_on_impact_finish"]

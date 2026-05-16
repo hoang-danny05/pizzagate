@@ -10,6 +10,8 @@ signal load_finished
 var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
 @onready var settings_menu : SettingsMenu = $Settings
 @onready var blur = $"blurry face"
+@onready var impact = $"impact"
+@onready var impact_timer = $"impact/timer"
 
 # tracks state of the GameController, editing will do nothing
 var loaded_resource : PackedScene
@@ -87,7 +89,7 @@ delete: if we want to delete the old scene
 	removes scene from memory
 keep_running: if we want to hide the old scene
 	keeps data accessible, and runs it. May be the most resource intensive
-	controls whether or not to keep, well, running.
+	controls whether or not to keep,visible well, running.
 else: neither keep running nor delete
 	Removes the scene. Stays in memory, but no updated data.
 """
@@ -131,7 +133,16 @@ func _on_blur_gui_input(event: InputEvent) -> void:
 			blur.visible = false
 			blur_clicked.emit()
 			get_viewport().set_input_as_handled()
-		print(event)
+		#print(event)
 	pass # Replace with function body.
 
+#endregion
+
+#region impact
+func impact_display(duration : float = 0.1):
+	impact_timer.start(duration)
+	impact.visible = true
+
+func _on_impact_finish():
+	impact.visible = false
 #endregion

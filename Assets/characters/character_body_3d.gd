@@ -41,13 +41,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		equippedItem.visible = !equippedItem.visible
 		
 	if Input.is_action_just_pressed("debug"):
-		var _current = get_viewport().get_camera_3d()
-		#var _current = camera
-		print("TRUTH NUKE:", _current.global_transform, _current.get_path())
+		#var _current = get_viewport().get_camera_3d()
+		##var _current = camera
+		#print("TRUTH NUKE:", _current.global_transform, _current.get_path())
+		Global.game_controller.impact_display()
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3
 	else: 
 		sprint_modi = 1
+	
 
 func _physics_process(delta: float) -> void:
 	
