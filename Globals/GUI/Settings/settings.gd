@@ -1,4 +1,5 @@
 extends Control
+class_name SettingsMenu
 
 @export var active : bool
 @onready var animation = $AnimationPlayer
@@ -14,8 +15,6 @@ func _ready() -> void:
 	if visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-
-
 # yeah.
 # So it's actually always active, might be tanking performance?
 func _unhandled_input(event: InputEvent) -> void:
@@ -25,19 +24,31 @@ func _unhandled_input(event: InputEvent) -> void:
 		#settings_toggled.emit(visible)
 		
 		if active:
-			# activate
-			visible = true
-			get_tree().paused = true
-			Global.mouse_mode_push(Input.mouse_mode)
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			animation.play("flick_up")
-			
+			_activate()
 		else:
-			# deactivate
-			get_tree().paused = false
-			Global.mouse_mode_pop_and_apply()
-			animation.play("peace_out")
-			await animation.animation_finished
-			visible = false
+			_deactivate()
 			
 		get_viewport().set_input_as_handled()
+
+func _activate():
+	visible = true
+	get_tree().paused = true
+	Global.game_controller.blur_enable()
+	Global.mouse_mode_push(Input.mouse_mode)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	animation.play("flick_up")
+	
+	
+
+func _deactivate():
+	get_tree().paused = false
+	Global.game_controller.blur_disable()
+	Global.mouse_mode_pop_and_apply()
+	animation.play("peace_out")
+	await animation.animation_finished
+	visible = false
+
+func on_blur_click():
+	if active:
+		active = !active
+		_deactivate()

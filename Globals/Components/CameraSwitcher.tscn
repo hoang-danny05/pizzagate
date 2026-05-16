@@ -9,6 +9,7 @@ script = ExtResource("1_b5wb5")
 [node name="BlendCamera" type="Camera3D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15

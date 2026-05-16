@@ -8,7 +8,8 @@ signal load_finished
 
 # global scoped stuff
 var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
-@onready var global_ui = $Settings
+@onready var settings_menu : SettingsMenu = $Settings
+@onready var blur = $"blurry face"
 
 # tracks state of the GameController, editing will do nothing
 var loaded_resource : PackedScene
@@ -21,8 +22,14 @@ var use_multithreading = true
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
+	
 	Global.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
+	
+	# kind of an ugly pattern but we ball
+	blur_clicked.connect(settings_menu.on_blur_click)
 
 
 
@@ -66,10 +73,11 @@ func _replace_current_scene_with(new_scene : PackedScene):
 
 # to prevent the user from pausing on the load screen
 func _before_start_load():
-	global_ui.set_process(false)
+	settings_menu.set_process(false)
 
 func _after_load_finish():
-	global_ui.set_process(true)
+	settings_menu.set_process(true)
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 
 
@@ -102,3 +110,28 @@ else: neither keep running nor delete
 	#print(new)
 	#world3d.add_child(new)
 	#current_world3D = new
+	
+	
+	## ok what if i made the whole screen blur with a canvas item
+
+#region blur
+signal blur_clicked
+
+func blur_enable():
+	## makes the blur component visible
+	## readable interface because why not
+	blur.visible = true
+
+func blur_disable():
+	blur.visible = false
+
+func _on_blur_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			blur.visible = false
+			blur_clicked.emit()
+			get_viewport().set_input_as_handled()
+		print(event)
+	pass # Replace with function body.
+
+#endregion
