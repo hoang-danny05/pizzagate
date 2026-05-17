@@ -52,13 +52,15 @@ prev_item = NodePath("../Order2")
 
 [node name="OrderWheelMesh" parent="Pivot" instance=ExtResource("2_uy4pa")]
 
+[node name="OrderDetails" parent="." instance=ExtResource("8_15bpn")]
+
 [node name="left" type="Button" parent="."]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 10.0
 offset_top = -20.0
-offset_right = 40.0
+offset_right = 50.0
 offset_bottom = 20.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -81,7 +83,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
+offset_left = -50.0
 offset_top = -20.0
 offset_right = -10.0
 offset_bottom = 20.0
@@ -92,8 +94,6 @@ focus_behavior_recursive = 2
 button_mask = 7
 shortcut = SubResource("Shortcut_6mk7v")
 icon = ExtResource("7_620px")
-
-[node name="OrderDetails" parent="." instance=ExtResource("8_15bpn")]
 
 [node name="player_seat" type="Marker3D" parent="."]
 transform = Transform3D(0.9140417, 0, 0.40562022, 0, 1, 0, -0.40562022, 0, 0.9140417, -0.7749958, 0.9922266, -0.7886419)

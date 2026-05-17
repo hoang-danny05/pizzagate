@@ -20,12 +20,12 @@ func toggle_active():
 		_activate()
 
 func _activate():
-	
 	if (not order_data):
 		print("[ERR]: order_data was not set before displaying!")
 		return
 	Global.audio_play_with_variation(focus_audio, 0.9, 1.1)
-	#blur.activate()
+	blur.activate()
+	print(blur.position)
 	
 	active = true
 	visible = true

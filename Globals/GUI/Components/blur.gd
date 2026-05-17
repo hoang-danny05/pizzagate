@@ -14,7 +14,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	pass # Replace with function body.
 
 func activate():
+	print("activated")
 	visible = true
 
 func deactivate():
+	print("deactivated")
 	visible = false

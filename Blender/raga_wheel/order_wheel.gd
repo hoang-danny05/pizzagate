@@ -33,7 +33,7 @@ func _ready() -> void:
 			print("[WARN]: node in order_items is not clickable! ", get_path())
 			continue
 		var clickable_order : Order = order
-		clickable_order.focus_to_me.connect(set_focus_to)
+		clickable_order.focus_to_me.connect(_on_order_clicked)
 	
 	btn_left.visible = false
 	btn_right.visible = false
@@ -130,6 +130,12 @@ func set_focus_to(new_clickable : Order) -> void:
 		print("[ERR]: new_clickable was given null!")
 	_focus_to_rotation(new_clickable.rotation)
 	current_order = new_clickable
+
+func _on_order_clicked(order : Order) -> void:
+	if current_order == order:
+		toggle_order_focus()
+	else:
+		set_focus_to(order)
 
 ## given a clickable nodes rotation, this rotates the pivot
 ## so that the given clickable object is visible
