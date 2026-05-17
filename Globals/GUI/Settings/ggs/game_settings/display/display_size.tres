@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://5obp3uutrmcb" path="res://Globals/GUI/Settings/ggs/scripts/display/setting_display_size.gd" id="1_4br8q"]
 
 [resource]
+resource_name = "display_size"
 script = ExtResource("1_4br8q")
 sizes = Array[Vector2]([Vector2(1152, 648), Vector2(1280, 720), Vector2(1980, 1080), Vector2(2560, 1440), Vector2(3840, 2160)])
+key = "display_size"
 section = "display"
 default = 0
 metadata/_custom_type_script = "uid://5obp3uutrmcb"

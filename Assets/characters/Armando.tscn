@@ -2,24 +2,19 @@
 
 [ext_resource type="Script" uid="uid://pghq8hhodiet" path="res://Assets/characters/character_body_3d.gd" id="1_8c5hb"]
 [ext_resource type="PackedScene" uid="uid://l4xucvmuoyfb" path="res://Assets/models/the_chef_v_2.tscn" id="1_flhyt"]
-[ext_resource type="PackedScene" uid="uid://bcobfhdmy1jok" path="res://Globals/GUI/Gameplay/HUD.tscn" id="3_auenl"]
+[ext_resource type="PackedScene" uid="uid://cbxa8q1bdse5x" path="res://Globals/GUI/Gameplay/hud_sprite.tscn" id="4_8poyt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhqyh"]
 radius = 0.4736328
 height = 2.4887695
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_auenl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_aihmc"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_8c5hb")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(256, 400)
-
-[node name="Hud" parent="SubViewport" instance=ExtResource("3_auenl")]
 
 [node name="the_chef_v2" parent="." instance=ExtResource("1_flhyt")]
 
@@ -38,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28546858, 3.0285406)
 current = true
 fov = 41.7
 
-[node name="HUD" type="Sprite3D" parent="HPivot/SpringArm3D/Camera3D"]
-transform = Transform3D(0.863485, -0.050426766, 0.50184727, 0.050623428, 0.99862987, 0.013241239, -0.5018276, 0.013971658, 0.86485505, -0.44182885, -0.16566014, -0.87427735)
-pixel_size = 0.001
-texture = SubResource("ViewportTexture_auenl")
+[node name="HudSprite" parent="HPivot/SpringArm3D/Camera3D" instance=ExtResource("4_8poyt")]
+transform = Transform3D(0.8636891, -0.050763767, 0.50146186, 0.050588008, 0.998622, 0.01396218, -0.5014796, 0.013308973, 0.86506706, -0.442, -0.166, -0.874)
+texture = SubResource("ViewportTexture_aihmc")
