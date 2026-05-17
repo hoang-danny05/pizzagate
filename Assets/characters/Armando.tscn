@@ -35,4 +35,5 @@ fov = 41.7
 
 [node name="HudSprite" parent="HPivot/SpringArm3D/Camera3D" instance=ExtResource("4_8poyt")]
 transform = Transform3D(0.8636891, -0.050763767, 0.50146186, 0.050588008, 0.998622, 0.01396218, -0.5014796, 0.013308973, 0.86506706, -0.442, -0.166, -0.874)
+visible = false
 texture = SubResource("ViewportTexture_aihmc")

@@ -59,8 +59,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	if Input.is_action_just_pressed("debug"):
 		Global.game_controller.impact_display()
-		Global.current_hud.set_health(Global.current_hud._health + 10) 
-		Global.current_hud.set_sauce(Global.current_hud._sauce + 10) 
+		Global.current_hud.set_health(Global.save_data.player_health + 10) 
+		Global.current_hud.set_sauce(Global.save_data.player_sauce + 10) 
 	
 
 func _physics_process(delta: float) -> void:

@@ -29,6 +29,8 @@ func _ready() -> void:
 	Global.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
 	
+	Global.save_data_init() # for testin
+	
 
 
 

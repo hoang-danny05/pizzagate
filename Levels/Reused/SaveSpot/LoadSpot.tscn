@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7jgj4bpdbp2e"]
+
+[ext_resource type="Script" uid="uid://d3haiojuch7x0" path="res://Levels/Reused/SaveSpot/load_spot.gd" id="1_jwe7b"]
+[ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/interactible/InteractableComponent.tscn" id="2_tkvhq"]
+
+[node name="LoadSpot" type="Node3D"]
+script = ExtResource("1_jwe7b")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_tkvhq")]
+label_text = "Load or create new save"
+
+[connection signal="onInteraction" from="InteractableComponent" to="." method="_on_interaction"]
