@@ -110,8 +110,8 @@ func _input(event : InputEvent) -> void:
 		pass
 		# put debug stuff here if you want
 		#print("Active State: ", active)
-		
-		
+
+
 ########################################
 # order-related methods
 ########################################

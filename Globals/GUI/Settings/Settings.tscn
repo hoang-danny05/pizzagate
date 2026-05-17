@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=23 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
@@ -8,11 +8,13 @@
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
 [ext_resource type="PackedScene" uid="uid://snlvoo81n41u" path="res://Globals/GUI/Settings/ggs/components/spinbox/component_spinbox.tscn" id="5_fecju"]
 [ext_resource type="PackedScene" uid="uid://6fourcox2l3w" path="res://Globals/GUI/Settings/ggs/components/slider/better_slider.tscn" id="5_qgrel"]
-[ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Globals/GUI/Settings/ggs/components/option_list/component_option_list.tscn" id="6_u3dfj"]
+[ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://Blender/component_option_list.tscn" id="6_u3dfj"]
 [ext_resource type="Resource" uid="uid://e7k2t2j2tbk3" path="res://Globals/GUI/Settings/ggs/game_settings/display/max_fps.tres" id="6_wh08j"]
 [ext_resource type="Resource" uid="uid://rcenfc6lo701" path="res://Globals/GUI/Settings/ggs/game_settings/audio/sfx_volume.tres" id="7_b5rm6"]
 [ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://Globals/GUI/Settings/ggs/components/checkbox/component_checkbox.tscn" id="7_qsdlf"]
 [ext_resource type="Resource" uid="uid://brynpuij33hnt" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_mode.tres" id="7_tto23"]
+[ext_resource type="Resource" uid="uid://d2qinwiaa7be0" path="res://Globals/GUI/Settings/ggs/game_settings/display/vsync_mode.tres" id="8_2in2h"]
+[ext_resource type="Resource" uid="uid://cee1fhww6dd40" path="res://Globals/GUI/Settings/ggs/game_settings/display/display_size.tres" id="9_uyled"]
 [ext_resource type="Resource" uid="uid://nir1mhienixl" path="res://Globals/GUI/Settings/ggs/game_settings/audio/master_volume.tres" id="9_vex8i"]
 [ext_resource type="FontFile" uid="uid://b4qe87d8qjuih" path="res://Assets/2d/fonts/anton_5.2.7/ttf/anton-latin-400-normal.ttf" id="10_qgrel"]
 
@@ -176,7 +178,10 @@ text = "Display"
 layout_mode = 2
 setting = ExtResource("7_tto23")
 
-[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode" index="0"]
+[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode/HBoxContainer" index="0"]
+text = "Display Mode:"
+
+[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode/HBoxContainer" index="1"]
 item_count = 3
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
@@ -185,12 +190,51 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
-[node name="SpinBox2" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("5_fecju")]
+[node name="MaxFPS" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("5_fecju")]
 layout_mode = 2
 setting = ExtResource("6_wh08j")
 
-[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/SpinBox2/HBoxContainer" index="0"]
-text = "Max FPS"
+[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/MaxFPS/HBoxContainer" index="0"]
+text = "Max FPS:"
+
+[node name="VSyncMode" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("6_u3dfj")]
+layout_mode = 2
+setting = ExtResource("8_2in2h")
+
+[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/VSyncMode/HBoxContainer" index="0"]
+text = "Vsync:"
+
+[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/VSyncMode/HBoxContainer" index="1"]
+selected = 0
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
+[node name="DisplaySize" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display" instance=ExtResource("6_u3dfj")]
+layout_mode = 2
+setting = ExtResource("9_uyled")
+
+[node name="Label" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplaySize/HBoxContainer" index="0"]
+text = "Display Size"
+
+[node name="Btn" parent="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplaySize/HBoxContainer" index="1"]
+item_count = 5
+popup/item_0/text = "1152x648"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3840x2160"
+popup/item_4/id = 4
 
 [node name="Audio" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 visible = false
@@ -301,7 +345,9 @@ libraries = {
 [connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
-[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/SpinBox2"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/MaxFPS"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/VSyncMode"]
+[editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplaySize"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/Master"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Audio/SFX"]
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Gameplay Flavor/Godmode"]

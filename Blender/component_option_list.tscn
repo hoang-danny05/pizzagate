@@ -7,5 +7,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_5yk06")
 
-[node name="Btn" type="OptionButton" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "label"
+
+[node name="Btn" type="OptionButton" parent="HBoxContainer"]
 layout_mode = 2
