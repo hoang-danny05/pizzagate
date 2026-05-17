@@ -20,9 +20,8 @@ func _ready() -> void:
 # So it's actually always active, might be tanking performance?
 func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventKey and event.is_action_pressed("ui_cancel")):
-		#visible = ! visible;
+			
 		active = ! active;
-		#settings_toggled.emit(visible)
 		
 		if active:
 			_activate()
@@ -47,7 +46,8 @@ func _deactivate():
 	Global.mouse_mode_pop_and_apply()
 	animation.play("peace_out")
 	await animation.animation_finished
-	visible = false
+	if !active: # prevent weird side effect
+		visible = false
 
 func on_blur_click():
 	if active:
