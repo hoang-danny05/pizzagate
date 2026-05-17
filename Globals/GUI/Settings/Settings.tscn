@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddh78pq4uiwe1"]
+[gd_scene load_steps=24 format=3 uid="uid://ddh78pq4uiwe1"]
 
 [ext_resource type="Script" uid="uid://bnnge2ppwtsb1" path="res://Globals/GUI/Settings/settings.gd" id="1_ypv10"]
 [ext_resource type="LabelSettings" uid="uid://cpfcvocoddens" path="res://Globals/GUI/Settings/TitleText.tres" id="2_6xrik"]
 [ext_resource type="PackedScene" uid="uid://bs8mkkwwyram6" path="res://Globals/GUI/Components/Blur.tscn" id="2_wh08j"]
 [ext_resource type="Theme" uid="uid://da3h0kv3unisv" path="res://Globals/GUI/Settings/SettingsUITheme.tres" id="2_x1nv6"]
+[ext_resource type="Script" uid="uid://dpy182hdwdlg" path="res://Globals/GUI/Settings/tab_container.gd" id="4_34h3t"]
 [ext_resource type="Script" uid="uid://bmbdl6887xhmx" path="res://Globals/GUI/Settings/quit_button.gd" id="4_n0b7a"]
 [ext_resource type="Resource" uid="uid://1gyccq37u3gk" path="res://Globals/GUI/Settings/ggs/game_settings/godmode.tres" id="5_f4jdn"]
 [ext_resource type="PackedScene" uid="uid://snlvoo81n41u" path="res://Globals/GUI/Settings/ggs/components/spinbox/component_spinbox.tscn" id="5_fecju"]
@@ -162,6 +163,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme = ExtResource("2_x1nv6")
 current_tab = 0
+script = ExtResource("4_34h3t")
 
 [node name="Display" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/TabContainer"]
 layout_mode = 2
@@ -342,6 +344,8 @@ libraries = {
 }
 
 [connection signal="blur_clicked" from="Blur" to="." method="on_blur_click"]
+[connection signal="tab_changed" from="Menu/PanelContainer/MarginContainer/TabContainer" to="Menu/PanelContainer/MarginContainer/TabContainer" method="_on_tab_changed"]
+[connection signal="tab_hovered" from="Menu/PanelContainer/MarginContainer/TabContainer" to="Menu/PanelContainer/MarginContainer/TabContainer" method="_on_tab_hovered"]
 [connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]
 
 [editable path="Menu/PanelContainer/MarginContainer/TabContainer/Display/DisplayMode"]
