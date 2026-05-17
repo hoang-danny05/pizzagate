@@ -1,19 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcobfhdmy1jok"]
+[gd_scene load_steps=4 format=3 uid="uid://bcobfhdmy1jok"]
 
-[sub_resource type="Gradient" id="Gradient_u2aq0"]
-colors = PackedColorArray(0.9752572, 0.35379875, 0.3115705, 1, 0.5496872, 0.11036726, 9.62615e-08, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sdp5g"]
-gradient = SubResource("Gradient_u2aq0")
-
-[sub_resource type="Gradient" id="Gradient_rtjnb"]
-colors = PackedColorArray(0, 0.74913555, 0.26671898, 1, 0.05920001, 0.37, 0.23531997, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ym6kw"]
-gradient = SubResource("Gradient_rtjnb")
+[ext_resource type="Script" uid="uid://cariqyjufbb81" path="res://Globals/GUI/Gameplay/hud.gd" id="1_sdp5g"]
 
 [sub_resource type="Gradient" id="Gradient_4uwyr"]
-colors = PackedColorArray(0, 0.55412513, 0.91725653, 1, 0.07818451, 0.23574063, 0.48951757, 1)
+colors = PackedColorArray(0.92, 0.27600002, 0, 1, 0.412102, 0.10268963, 0.11872124, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jlume"]
 gradient = SubResource("Gradient_4uwyr")
@@ -25,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sdp5g")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -44,7 +35,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "healf"
 
-[node name="ProgressBar" type="ProgressBar" parent="ColorRect"]
+[node name="HealthBar" type="ProgressBar" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -70,7 +61,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "sauce"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="ColorRect"]
+[node name="SauceBar" type="TextureProgressBar" parent="ColorRect"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 91.0
@@ -81,8 +72,6 @@ value = 50.0
 allow_greater = true
 allow_lesser = true
 nine_patch_stretch = true
-texture_under = SubResource("GradientTexture1D_sdp5g")
-texture_over = SubResource("GradientTexture1D_ym6kw")
 texture_progress = SubResource("GradientTexture1D_jlume")
 
 [node name="sauce2" type="Label" parent="ColorRect"]

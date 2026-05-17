@@ -32,7 +32,12 @@ func _ready():
 	# if a player exists, they will hold the input hostage. 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	GGS.setting_applied.connect(_on_setting_applied)
+
+func _enter_tree() -> void:
 	Global.player_character = self
+
+func _exit_tree() -> void:
+	Global.player_character = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -42,9 +47,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("debug"):
 		#var _current = get_viewport().get_camera_3d()
-		##var _current = camera
+		##var _current = dwcamera
 		#print("TRUTH NUKE:", _current.global_transform, _current.get_path())
 		Global.game_controller.impact_display()
+		Global.current_hud.set_health(Global.current_hud._health + 10) 
+		Global.current_hud.set_sauce(Global.current_hud._sauce + 10) 
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3
 	else: 

@@ -44,7 +44,12 @@ func audio_play_with_variation(
 
 #endregion
 
+## singleton, reference to the one and only game controller
+## do not access on _ready()
 @export var game_controller : GameController
-## Callables that we want to connect to the game controller before load
-## apply with game_controller.blur_queue_flush or something like that
+
+## current player character. Nullable 
 @export var player_character : Armando
+
+## current HUD reference. Nullable
+@export var current_hud : HUD
