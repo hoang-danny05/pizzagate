@@ -1,4 +1,4 @@
-@tool
+#@tool
 @abstract
 extends Button
 class_name UiButton

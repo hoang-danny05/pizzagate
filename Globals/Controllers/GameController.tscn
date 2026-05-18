@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://n3eb3xl55uow"]
 
 [ext_resource type="Script" uid="uid://b67syrwit3hx0" path="res://Globals/Controllers/game_controller.gd" id="1_7462k"]
-[ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Hub/hub.tscn" id="1_vbidl"]
 [ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="2_7462k"]
+[ext_resource type="PackedScene" uid="uid://t81rl7ya5srg" path="res://Globals/GUI/TitleScreen/TitleScreen.tscn" id="2_yoqdf"]
 [ext_resource type="Material" uid="uid://cei0ye3ddwcpp" path="res://Assets/materials/vfx/impact.tres" id="5_yoqdf"]
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("current_scene")]
 script = ExtResource("1_7462k")
-current_scene = NodePath("Level1")
+current_scene = NodePath("TitleScreen")
 
-[node name="Level1" parent="." instance=ExtResource("1_vbidl")]
+[node name="TitleScreen" parent="." instance=ExtResource("2_yoqdf")]
+hub_scene_path = "res://Levels/Hub/hub.tscn"
 
 [node name="Settings" parent="." instance=ExtResource("2_7462k")]
 visible = false

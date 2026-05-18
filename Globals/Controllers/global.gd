@@ -48,6 +48,9 @@ func audio_play_with_variation(
 ## save data
 ## please do not directly access, use Global.save_data_*() methods
 @export var save_data : SaveData
+## the save file format 
+## use in conjunction with String.format(Array)
+var SAVE_FILE_FORMAT : String = "user://save_{0}.tres"
 
 ## signal to subscribe to when the save data gets updated
 signal save_data_updated
@@ -58,9 +61,9 @@ func save_data_init():
 
 func save_data_load(slot : int = 0) -> bool:
 	## returns success value
-	var file_path = "user://save_{0}.tres".format([slot])
+	var file_path = SAVE_FILE_FORMAT.format([slot])
 	if ResourceLoader.exists(file_path):
-		print("[info]: loaded from {0}".format([file_path]))
+		print("[info]: loaded from ", file_path)
 		Global.save_data = load(file_path)
 		save_data_updated.emit()
 		return true
@@ -74,7 +77,7 @@ func save_data_persist(slot : int = 0) -> void:
 	
 	if slot < 0:
 		print("[WARN]: negative number used for save slot")
-	var file_path = "user://save_{0}.tres".format([slot])
+	var file_path = SAVE_FILE_FORMAT.format([slot])
 	ResourceSaver.save(save_data, file_path)
 	
 #endregion

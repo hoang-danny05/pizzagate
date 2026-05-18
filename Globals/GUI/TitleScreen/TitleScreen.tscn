@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://t81rl7ya5srg"]
+
+[ext_resource type="Script" uid="uid://dtqcrwiyf8hjv" path="res://Globals/GUI/TitleScreen/title_screen.gd" id="1_6xjwk"]
+[ext_resource type="PackedScene" uid="uid://bs8mkkwwyram6" path="res://Globals/GUI/Components/Blur.tscn" id="2_6xjwk"]
+[ext_resource type="Texture2D" uid="uid://mmoal8t4g4wf" path="res://Assets/2d/placeholder/title_screen.jpg" id="2_ldbea"]
+[ext_resource type="Script" uid="uid://drgkvxig5a1d8" path="res://Globals/GUI/TitleScreen/button.gd" id="3_ldbea"]
+[ext_resource type="PackedScene" uid="uid://0ajrplvyb4hp" path="res://Globals/GUI/TitleScreen/LoadMenu/LoadMenu.tscn" id="5_ldbea"]
+
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("active_element")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xjwk")
+active_element = NodePath("Content/Initial")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2688.0
+offset_bottom = 1512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ldbea")
+
+[node name="Blur" parent="." instance=ExtResource("2_6xjwk")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Content" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Initial" type="VBoxContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGame" type="Button" parent="Content/Initial"]
+layout_mode = 2
+text = "New Kitchen"
+script = ExtResource("3_ldbea")
+
+[node name="Continue" type="Button" parent="Content/Initial"]
+layout_mode = 2
+text = "Continue Cooking"
+script = ExtResource("3_ldbea")
+
+[node name="Quit" type="Button" parent="Content/Initial"]
+layout_mode = 2
+text = "Leave Kitchen"
+script = ExtResource("3_ldbea")
+
+[node name="LoadMenu" parent="Content" instance=ExtResource("5_ldbea")]
+layout_mode = 1
+
+[connection signal="pressed" from="Content/Initial/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Content/Initial/Quit" to="." method="_on_quit_pressed"]

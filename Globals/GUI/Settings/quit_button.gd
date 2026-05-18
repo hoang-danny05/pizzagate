@@ -1,4 +1,3 @@
-@tool
 extends UiButton
 
 func _on_pressed() -> void:

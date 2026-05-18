@@ -14,7 +14,7 @@ var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
 
 # tracks state of the GameController, editing will do nothing
 var loaded_resource : PackedScene
-@export var current_scene : Node3D
+@export var current_scene : Node
 var current_scene_path : String
 var progress : Array
 
@@ -137,4 +137,8 @@ func impact_display(duration : float = 0.1):
 
 func _on_impact_finish():
 	impact.visible = false
+#endregion
+
+#region title screen
+
 #endregion
