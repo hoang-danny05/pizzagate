@@ -1,6 +1,7 @@
 extends Control
 
 @export var active_element : Control
+@onready var load_menu = $Content/LoadMenu
 
 @export_file_path("*.tscn") var hub_scene_path 
 
@@ -15,3 +16,7 @@ func _on_new_game_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_continue_pressed() -> void:
+	load_menu.visible = !load_menu.visible

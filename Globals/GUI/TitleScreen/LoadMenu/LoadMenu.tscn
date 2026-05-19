@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://0ajrplvyb4hp"]
+[gd_scene load_steps=4 format=3 uid="uid://0ajrplvyb4hp"]
 
 [ext_resource type="Script" uid="uid://iuk26mj7i8rd" path="res://Globals/GUI/TitleScreen/LoadMenu/load_menu.gd" id="1_y52p1"]
+
+[sub_resource type="Gradient" id="Gradient_y52p1"]
+offsets = PackedFloat32Array(0, 0.9866667)
+colors = PackedColorArray(0.055739924, 0.15253678, 0.36259195, 1, 6.016344e-08, 0.16408649, 0.20910898, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5kdvq"]
+gradient = SubResource("Gradient_y52p1")
+fill_to = Vector2(0, 1)
 
 [node name="LoadMenu" type="Control"]
 layout_mode = 3
@@ -10,3 +18,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y52p1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 314.0
+offset_bottom = 239.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5kdvq")
+
+[node name="SaveSlots" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/SaveSlots"]
+layout_mode = 2
+text = "save or something"

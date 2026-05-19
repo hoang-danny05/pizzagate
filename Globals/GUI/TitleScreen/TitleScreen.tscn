@@ -74,7 +74,18 @@ text = "Leave Kitchen"
 script = ExtResource("3_ldbea")
 
 [node name="LoadMenu" parent="Content" instance=ExtResource("5_ldbea")]
+visible = false
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -165.0
+offset_top = 50.0
+offset_right = -165.0
+offset_bottom = 50.0
+grow_vertical = 1
 
 [connection signal="pressed" from="Content/Initial/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Content/Initial/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Content/Initial/Quit" to="." method="_on_quit_pressed"]

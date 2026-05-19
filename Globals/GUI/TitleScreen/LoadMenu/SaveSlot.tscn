@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkgqr35jugequ"]
+
+[ext_resource type="Script" uid="uid://cua0p1fmcv12r" path="res://Globals/GUI/TitleScreen/LoadMenu/save_slot.gd" id="1_w3ir8"]
+
+[sub_resource type="Gradient" id="Gradient_c372l"]
+colors = PackedColorArray(0.48304176, 0.15865305, 0.064230576, 1, 0.59228945, 0.3554964, 0.124971665, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cyidv"]
+gradient = SubResource("Gradient_c372l")
+
+[node name="SaveSlot" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 0.30600002
+anchor_bottom = 0.116000004
+offset_right = 0.48797607
+offset_bottom = -0.16799927
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3ir8")
+
+[node name="SaveBG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_cyidv")
+
+[node name="MarginContainer" type="MarginContainer" parent="SaveBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveBG/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="SaveButton" type="Button" parent="SaveBG/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="SaveBG/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[node name="SaveNumber" type="Label" parent="SaveBG"]
+layout_mode = 1
+offset_right = 21.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="SaveName" type="Label" parent="SaveBG"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 75.0
+offset_bottom = 23.0
+text = "Slot 1"
+
+[node name="SaveDate" type="Label" parent="SaveBG"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -23.0
+offset_right = 113.0
+grow_vertical = 0
+text = "5/18/2026"
