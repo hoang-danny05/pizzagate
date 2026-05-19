@@ -2,7 +2,7 @@
 @icon("res://ggs/components/option_list/option_list.svg")
 extends GGSComponent
 
-@onready var _btn: OptionButton = $Btn
+@onready var _btn: OptionButton = $HBoxContainer/Btn
 
 
 func _ready() -> void:

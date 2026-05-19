@@ -1,5 +1,5 @@
 @tool
-@icon("res://ggs/components/slider/slider.svg")
+@icon("res://Global/GUI/Settings/ggs/components/slider/slider.svg")
 extends GGSComponent
 
 @onready var _slider: HSlider = $Slider

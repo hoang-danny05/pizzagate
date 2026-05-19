@@ -1,12 +1,16 @@
 extends Node
 class_name GameController
+## class responsible for switching scenes
+## root of everything, always in scene tree
 
 signal progress_changed(progress : float)
 signal load_finished
 
 # global scoped stuff
 var loading_screen : PackedScene = preload("uid://ya7mu00xq5c7")
-@onready var global_ui = $Settings
+@onready var settings_menu : SettingsMenu = $Settings
+@onready var impact = $"impact"
+@onready var impact_timer = $"impact/timer"
 
 # tracks state of the GameController, editing will do nothing
 var loaded_resource : PackedScene
@@ -19,8 +23,14 @@ var use_multithreading = true
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
+	
 	Global.game_controller = self
 	set_process(false) # I won't be processing until you tell me to!
+	
+	Global.save_data_init() # for testin
+	
 
 
 
@@ -64,10 +74,11 @@ func _replace_current_scene_with(new_scene : PackedScene):
 
 # to prevent the user from pausing on the load screen
 func _before_start_load():
-	global_ui.set_process(false)
+	settings_menu.set_process(false)
 
 func _after_load_finish():
-	global_ui.set_process(true)
+	settings_menu.set_process(true)
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 
 
@@ -77,7 +88,7 @@ delete: if we want to delete the old scene
 	removes scene from memory
 keep_running: if we want to hide the old scene
 	keeps data accessible, and runs it. May be the most resource intensive
-	controls whether or not to keep, well, running.
+	controls whether or not to keep,visible well, running.
 else: neither keep running nor delete
 	Removes the scene. Stays in memory, but no updated data.
 """
@@ -100,3 +111,30 @@ else: neither keep running nor delete
 	#print(new)
 	#world3d.add_child(new)
 	#current_world3D = new
+	
+	
+	## ok what if i made the whole screen blur with a canvas item
+
+#region blur
+## adds all items in the blur queue
+#func blur_queue_flush():
+	#while Global.game_controller_blur_queue:
+		#var item = Global.game_controller_blur_queue.pop_back()
+		#if item is Callable:
+			#blur_clicked.connect(item)
+		#else:
+			#print("[ERR]: callable not assigned to queue!")
+	#
+	#
+
+
+#endregion
+
+#region impact
+func impact_display(duration : float = 0.1):
+	impact_timer.start(duration)
+	impact.visible = true
+
+func _on_impact_finish():
+	impact.visible = false
+#endregion

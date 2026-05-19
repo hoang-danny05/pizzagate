@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8h8r7levsfn"]
+[gd_scene load_steps=7 format=3 uid="uid://c8h8r7levsfn"]
 
 [ext_resource type="Script" uid="uid://diikb4km476lf" path="res://Blender/raga_wheel/OrderDetails/order_details.gd" id="1_k6w06"]
 [ext_resource type="Theme" uid="uid://g6gs8tk84r4t" path="res://Blender/raga_wheel/OrderDetails/OrderTheme.tres" id="2_8gjsd"]
+[ext_resource type="PackedScene" uid="uid://bs8mkkwwyram6" path="res://Globals/GUI/Components/Blur.tscn" id="2_nfgfc"]
 [ext_resource type="Texture2D" uid="uid://bjj35hp88m7gt" path="res://Assets/2d/concept/bufferfish_big.jpeg" id="3_xats8"]
 [ext_resource type="AudioStream" uid="uid://dymc6nrw60vnt" path="res://Assets/audio/ui/ui_paper2.mp3" id="4_8gjsd"]
 [ext_resource type="AudioStream" uid="uid://trw3isbmkp8f" path="res://Assets/audio/ui/ui_paper3.mp3" id="4_xats8"]
@@ -14,6 +15,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6w06")
+
+[node name="Blur" parent="." instance=ExtResource("2_nfgfc")]
+layout_mode = 1
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -166,4 +172,5 @@ stream = ExtResource("4_8gjsd")
 pitch_scale = 0.5
 max_polyphony = 2
 
+[connection signal="blur_clicked" from="Blur" to="." method="_on_background_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

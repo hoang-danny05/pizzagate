@@ -15,6 +15,7 @@ const rotation_amount := 7.0
 @onready var h_pivot: Node3D = $HPivot
 @onready var body = $the_chef_v2
 @onready var equippedItem = $"the_chef_v2/metarig/Skeleton3D/scale metarig_Skeleton3D#BoneAttachment3D/frying_pan_FBX"
+@onready var hud_sprite = $HPivot/SpringArm3D/Camera3D/HudSprite
 
 var sprint_modi = 1
 var has_double_jumped: bool = false
@@ -32,7 +33,12 @@ func _ready():
 	# if a player exists, they will hold the input hostage. 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	GGS.setting_applied.connect(_on_setting_applied)
+
+func _enter_tree() -> void:
 	Global.player_character = self
+
+func _exit_tree() -> void:
+	Global.player_character = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -40,14 +46,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("equip_unequip"):
 		equippedItem.visible = !equippedItem.visible
 		
-	if Input.is_action_just_pressed("debug"):
-		var _current = get_viewport().get_camera_3d()
-		#var _current = camera
-		print("TRUTH NUKE:", _current.global_transform, _current.get_path())
+		
 	if Input. is_action_pressed("move_sprint"):
 		sprint_modi = 3
 	else: 
 		sprint_modi = 1
+	
+	if event is InputEventKey:
+		if event.is_action_pressed("ui_toggle"):
+			hud_sprite.toggle_state()
+			pass
+			
+	if Input.is_action_just_pressed("debug"):
+		Global.game_controller.impact_display()
+		Global.current_hud.set_health(Global.save_data.player_health + 10) 
+		Global.current_hud.set_sauce(Global.save_data.player_sauce + 10) 
+	
 
 func _physics_process(delta: float) -> void:
 	

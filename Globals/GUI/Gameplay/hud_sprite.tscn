@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbxa8q1bdse5x"]
+
+[ext_resource type="Script" uid="uid://ctvppwmqa7wui" path="res://Globals/GUI/Gameplay/hud_sprite.gd" id="1_84j55"]
+[ext_resource type="PackedScene" uid="uid://bcobfhdmy1jok" path="res://Globals/GUI/Gameplay/HUD.tscn" id="1_oc102"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hdr7j"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HudSprite" type="Sprite3D"]
+pixel_size = 0.001
+texture = SubResource("ViewportTexture_hdr7j")
+script = ExtResource("1_84j55")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(256, 400)
+
+[node name="Hud" parent="SubViewport" instance=ExtResource("1_oc102")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

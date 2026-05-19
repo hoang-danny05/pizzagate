@@ -4,4 +4,3 @@
 
 [node name="Global" type="Node"]
 script = ExtResource("1_fcfbr")
-mouse_mode_stack = null

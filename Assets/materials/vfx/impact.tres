@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cei0ye3ddwcpp"]
+
+[ext_resource type="Shader" uid="uid://dmk7mp0woxinr" path="res://Assets/shaders/impact/impact.gdshader" id="1_jqngw"]
+
+[resource]
+shader = ExtResource("1_jqngw")
+shader_parameter/threshold = 0.5
+shader_parameter/smoothness = 0.05
+shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/fg_color = Color(1, 1, 1, 1)
+shader_parameter/invert = false
+shader_parameter/intensity = 1.0

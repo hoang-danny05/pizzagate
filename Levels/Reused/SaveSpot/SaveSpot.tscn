@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddjspt24ru2ba"]
+
+[ext_resource type="PackedScene" uid="uid://cjah64eg1nb2b" path="res://Globals/Components/interactible/InteractableComponent.tscn" id="1_a7lav"]
+[ext_resource type="Script" uid="uid://ddsou8c5l6tus" path="res://Levels/Reused/SaveSpot/save_spot.gd" id="1_b4ve1"]
+
+[node name="SaveSpot" type="Node3D"]
+script = ExtResource("1_b4ve1")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("1_a7lav")]
+label_text = "Save to slot if exists"
+
+[connection signal="onInteraction" from="InteractableComponent" to="." method="_on_interactable_component_on_interaction"]
