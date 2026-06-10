@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://o6rvx6xe75n1"]
+
+[ext_resource type="PackedScene" uid="uid://c2ljjg3womy2e" path="res://Blender/Domar/Domar.blend" id="1_ytryg"]
+
+[node name="Domar" unique_id=1618327302 instance=ExtResource("1_ytryg")]

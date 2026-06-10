@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://pxfy54hyx0n7"]
+[gd_scene format=3 uid="uid://pxfy54hyx0n7"]
 
 [ext_resource type="Script" uid="uid://blfe6i7r67k71" path="res://Levels/Hub/hub.gd" id="1_6ecq1"]
 [ext_resource type="Material" uid="uid://ds2i5hgjb58jb" path="res://Assets/materials/materials/bark-1.tres" id="2_8wngr"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ttxitfnec5ul" path="res://Globals/Components/CameraSwitcher.tscn" id="10_5f3uh"]
 [ext_resource type="PackedScene" uid="uid://c7jgj4bpdbp2e" path="res://Levels/Reused/SaveSpot/LoadSpot.tscn" id="11_hbibj"]
 [ext_resource type="PackedScene" uid="uid://ddjspt24ru2ba" path="res://Levels/Reused/SaveSpot/SaveSpot.tscn" id="12_1iqmm"]
+[ext_resource type="PackedScene" uid="uid://b4o4a70l2a0jy" path="res://Assets/characters/Lickitgood.tscn" id="13_1iqmm"]
+[ext_resource type="PackedScene" uid="uid://b67hfjtb7lhuo" path="res://Assets/models/splounder_fr.tscn" id="14_wewq5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afh44"]
 albedo_color = Color(0.5251013, 0.5251013, 0.5251013, 1)
@@ -28,79 +30,85 @@ sky = SubResource("Sky_afh44")
 ambient_light_source = 3
 ambient_light_color = Color(2.2639842, 2.2639842, 2.2639842, 1)
 
-[node name="Level1" type="Node3D" node_paths=PackedStringArray("start_point", "player_character")]
+[node name="Level1" type="Node3D" unique_id=905532620 node_paths=PackedStringArray("start_point", "player_character")]
 script = ExtResource("1_6ecq1")
 start_point = NodePath("StartingPoint")
 player_character = NodePath("Player")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1201325366]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.402751, 1.9781404, -0.035243988)
 use_collision = true
 size = Vector3(3, 3, 3)
 material = ExtResource("2_8wngr")
 
-[node name="the kitchen" type="CSGCombiner3D" parent="."]
+[node name="the kitchen" type="CSGCombiner3D" parent="." unique_id=2146074983]
 use_collision = true
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="the kitchen"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="the kitchen" unique_id=2125030348]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9717455, 3.8271532, 7.871005)
 use_collision = true
 size = Vector3(10, 7, 0.5)
 material = ExtResource("3_hbibj")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="the kitchen"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="the kitchen" unique_id=643044284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2166204, 0.98412037, 6.381968)
 use_collision = true
 size = Vector3(3, 1, 3)
 material = ExtResource("4_1iqmm")
 
-[node name="floor ahh floor" type="CSGBox3D" parent="the kitchen"]
+[node name="floor ahh floor" type="CSGBox3D" parent="the kitchen" unique_id=1726238412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9100466, 9.536743e-07, -0.18268776)
 use_collision = true
 size = Vector3(71.497, 1, 64.071)
 material = SubResource("StandardMaterial3D_afh44")
 
-[node name="CSGBox3D_wood2" type="CSGBox3D" parent="the kitchen"]
+[node name="CSGBox3D_wood2" type="CSGBox3D" parent="the kitchen" unique_id=2135978749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3443396, 1.9963965, -10.816657)
 use_collision = true
 size = Vector3(0.2, 3, 0.2)
 material = ExtResource("5_wewq5")
 
-[node name="CSGBox3D_leaves" type="CSGBox3D" parent="the kitchen"]
+[node name="CSGBox3D_leaves" type="CSGBox3D" parent="the kitchen" unique_id=1545173810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3593836, 4.607549, -10.637053)
 use_collision = true
 size = Vector3(3, 3, 3)
 material = ExtResource("6_k47yq")
 
-[node name="Player" parent="." instance=ExtResource("7_7an7k")]
+[node name="Player" parent="." unique_id=855287807 instance=ExtResource("7_7an7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058059692, 16.37313, 0.40448093)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=961835546]
 environment = SubResource("Environment_ut2bn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=731260749]
 transform = Transform3D(0.03776274, -0.18812501, 0.9814189, -0.02399139, 0.9816656, 0.18909545, -0.9989987, -0.030686364, 0.032557003, 83.67061, 20.030529, 0)
 shadow_enabled = true
 shadow_bias = 0.01
 shadow_normal_bias = 6.0
 sky_mode = 1
 
-[node name="SceneSwitch" parent="." instance=ExtResource("8_qc0qx")]
+[node name="SceneSwitch" parent="." unique_id=11350420 instance=ExtResource("8_qc0qx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.678614, 3.9882407, 0)
 target_level = "res://Levels/Level2/level2.tscn"
 tooltip_text = "Press E to go to level 2"
 
-[node name="StartingPoint" type="Marker3D" parent="."]
+[node name="StartingPoint" type="Marker3D" parent="." unique_id=308356380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.67, 0)
 
-[node name="OrderWheel" parent="." node_paths=PackedStringArray("switcher") instance=ExtResource("9_kn5kp")]
+[node name="OrderWheel" parent="." unique_id=842400782 node_paths=PackedStringArray("switcher") instance=ExtResource("9_kn5kp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0036988, 1.4634926, 5.2755823)
 switcher = NodePath("../CameraSwitcher")
 
-[node name="CameraSwitcher" parent="." instance=ExtResource("10_5f3uh")]
+[node name="CameraSwitcher" parent="." unique_id=812259074 instance=ExtResource("10_5f3uh")]
 
-[node name="LoadSpot" parent="." instance=ExtResource("11_hbibj")]
+[node name="LoadSpot" parent="." unique_id=200035938 instance=ExtResource("11_hbibj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.686526, 1.4144201, 5.6401744)
 
-[node name="SaveSpot" parent="." instance=ExtResource("12_1iqmm")]
+[node name="SaveSpot" parent="." unique_id=576611362 instance=ExtResource("12_1iqmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8048713, 1.2892363, 5.764141)
+
+[node name="Lickitgood" parent="." unique_id=1098683326 instance=ExtResource("13_1iqmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.098288, 0.50000095, -18.337349)
+
+[node name="SplounderFR" parent="." unique_id=1487854165 instance=ExtResource("14_wewq5")]
+transform = Transform3D(-0.18496339, 0, 0.9827454, 0, 1, 0, -0.9827454, 0, -0.18496339, 36.155403, 0.569929, -5.1982737)

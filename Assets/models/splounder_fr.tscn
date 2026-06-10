@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b67hfjtb7lhuo"]
+
+[ext_resource type="PackedScene" uid="uid://bh2ta8wlche8g" path="res://Blender/Splounder/SplounderFR.blend" id="1_xbodg"]
+
+[node name="SplounderFR" unique_id=1487854165 instance=ExtResource("1_xbodg")]

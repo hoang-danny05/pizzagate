@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4o4a70l2a0jy"]
+
+[ext_resource type="PackedScene" uid="uid://o6rvx6xe75n1" path="res://Assets/models/domar.tscn" id="1_na1wt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_na1wt"]
+
+[node name="Lickitgood" type="CharacterBody3D" unique_id=1098683326]
+
+[node name="Domar" parent="." unique_id=1618327302 instance=ExtResource("1_na1wt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=595524381]
+transform = Transform3D(1.7713472, 0, 0, 0, 0.16633743, 0, 0, 0, 7.9827275, 0.029733181, 2.4900203, 2.9724717)
+shape = SubResource("BoxShape3D_na1wt")

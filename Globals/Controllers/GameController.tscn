@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://n3eb3xl55uow"]
+[gd_scene format=3 uid="uid://n3eb3xl55uow"]
 
 [ext_resource type="Script" uid="uid://b67syrwit3hx0" path="res://Globals/Controllers/game_controller.gd" id="1_7462k"]
 [ext_resource type="PackedScene" uid="uid://pxfy54hyx0n7" path="res://Levels/Hub/hub.tscn" id="1_vbidl"]
 [ext_resource type="PackedScene" uid="uid://ddh78pq4uiwe1" path="res://Globals/GUI/Settings/Settings.tscn" id="2_7462k"]
+[ext_resource type="PackedScene" uid="uid://b67hfjtb7lhuo" path="res://Assets/models/splounder_fr.tscn" id="5_uuys6"]
 [ext_resource type="Material" uid="uid://cei0ye3ddwcpp" path="res://Assets/materials/vfx/impact.tres" id="5_yoqdf"]
 
-[node name="GameController" type="Node" node_paths=PackedStringArray("current_scene")]
+[node name="GameController" type="Node" unique_id=1186319702 node_paths=PackedStringArray("current_scene")]
 script = ExtResource("1_7462k")
 current_scene = NodePath("Level1")
 
-[node name="Level1" parent="." instance=ExtResource("1_vbidl")]
+[node name="Level1" parent="." unique_id=61431267 instance=ExtResource("1_vbidl")]
 
-[node name="Settings" parent="." instance=ExtResource("2_7462k")]
+[node name="SplounderFR" parent="Level1" unique_id=1487854165 instance=ExtResource("5_uuys6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="Settings" parent="." unique_id=168772431 instance=ExtResource("2_7462k")]
 visible = false
 
-[node name="impact" type="ColorRect" parent="."]
+[node name="impact" type="ColorRect" parent="." unique_id=1224509510]
 visible = false
 material = ExtResource("5_yoqdf")
 anchors_preset = 15
@@ -24,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="timer" type="Timer" parent="impact"]
+[node name="timer" type="Timer" parent="impact" unique_id=6516400]
 wait_time = 0.1
 
 [connection signal="timeout" from="impact/timer" to="." method="_on_impact_finish"]
