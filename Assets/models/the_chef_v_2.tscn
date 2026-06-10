@@ -1,26 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://l4xucvmuoyfb"]
+[gd_scene format=3 uid="uid://l4xucvmuoyfb"]
 
 [ext_resource type="PackedScene" uid="uid://c6yfbi07vw0cx" path="res://Blender/pizza_man/the_chef_v2.blend" id="1_p05t2"]
 [ext_resource type="PackedScene" uid="uid://blbxclcadfei6" path="res://Assets/models/frying_pan.tscn" id="2_psc1q"]
 
-[node name="the_chef_v2" instance=ExtResource("1_p05t2")]
+[node name="the_chef_v2" unique_id=158954421 instance=ExtResource("1_p05t2")]
 
-[node name="hat" parent="metarig/Skeleton3D" index="0"]
+[node name="Skeleton3D" parent="scale metarig" parent_id_path=PackedInt32Array(2030001530) index="0" unique_id=1098575362]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="legs" parent="metarig/Skeleton3D" index="1"]
+[node name="hat" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(636615549) index="0" unique_id=855587924]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="shoe" parent="metarig/Skeleton3D" index="2"]
+[node name="legs" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(636615549) index="1" unique_id=898392007]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="torso" parent="metarig/Skeleton3D" index="3"]
+[node name="shoe" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(636615549) index="2" unique_id=1597811540]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="scale metarig_Skeleton3D#BoneAttachment3D" type="BoneAttachment3D" parent="metarig/Skeleton3D" index="4"]
+[node name="torso" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(636615549) index="3" unique_id=281356832]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="scale metarig_Skeleton3D#BoneAttachment3D" type="BoneAttachment3D" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(636615549) index="4" unique_id=706983629]
 transform = Transform3D(-0.6741287, -0.73397905, 0.08261086, 0.73856556, -0.6711297, 0.06407226, 0.008414857, 0.10420641, 0.99451953, -0.76741385, 1.1727403, -0.023109354)
 bone_name = "hand.R"
 bone_idx = 22
 
-[node name="frying_pan_FBX" parent="metarig/Skeleton3D/scale metarig_Skeleton3D#BoneAttachment3D" index="0" instance=ExtResource("2_psc1q")]
+[node name="frying_pan_FBX" parent="metarig/Skeleton3D/scale metarig_Skeleton3D#BoneAttachment3D" index="0" unique_id=78782901 instance=ExtResource("2_psc1q")]
 transform = Transform3D(0.010687538, 0.004253909, 0.14955866, -0.14719, -0.02661032, 0.011275102, 0.02685171, -0.14755996, 0.0022782227, -1.7036858, -1.1494484, 0.20011735)
