@@ -16,6 +16,7 @@ const rotation_amount := 7.0
 @onready var body = $the_chef_v2
 @onready var equippedItem = $"the_chef_v2/metarig/Skeleton3D/scale metarig_Skeleton3D#BoneAttachment3D/frying_pan_FBX"
 @onready var hud_sprite = $HPivot/SpringArm3D/Camera3D/HudSprite
+@onready var jump_player = $JumpPlayer
 
 var sprint_modi = 1
 var has_double_jumped: bool = false
@@ -64,9 +65,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	
-
-		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -82,11 +80,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump and double jump
 	if Input.is_action_pressed("move_jump") and is_on_floor():
+		jump_player.play_jump()
 		velocity.y = JUMP_VELOCITY
 	elif Input.is_action_just_pressed("move_jump") and !has_double_jumped:
+		jump_player.play_jump()
 		velocity.y = DUB_JUMP_VELOCITY
 		has_double_jumped = true
 	elif godmode and Input.is_action_just_pressed("move_jump"):
+		jump_player.play_jump()
 		velocity.y = DUB_JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.

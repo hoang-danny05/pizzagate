@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://l4bbje65tsio"]
+[gd_scene load_steps=7 format=3 uid="uid://l4bbje65tsio"]
 
 [ext_resource type="Script" uid="uid://pghq8hhodiet" path="res://Assets/characters/character_body_3d.gd" id="1_8c5hb"]
 [ext_resource type="PackedScene" uid="uid://l4xucvmuoyfb" path="res://Assets/models/the_chef_v_2.tscn" id="1_flhyt"]
 [ext_resource type="PackedScene" uid="uid://cbxa8q1bdse5x" path="res://Globals/GUI/Gameplay/hud_sprite.tscn" id="4_8poyt"]
+[ext_resource type="Script" uid="uid://bysprnotqh1fe" path="res://Assets/characters/jump_player.gd" id="4_aihmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhqyh"]
 radius = 0.4736328
@@ -37,3 +38,6 @@ fov = 41.7
 transform = Transform3D(0.8636891, -0.050763767, 0.50146186, 0.050588008, 0.998622, 0.01396218, -0.5014796, 0.013308973, 0.86506706, -0.442, -0.166, -0.874)
 visible = false
 texture = SubResource("ViewportTexture_aihmc")
+
+[node name="JumpPlayer" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("4_aihmc")
