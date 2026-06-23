@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dufqw02knayfj"
-path.s3tc="res://.godot/imported/SplounderFR_Rough Splounder texture.png-d18a58a671e24a1a0d10be42eaa3ce88.s3tc.ctex"
+path.s3tc="res://.godot/imported/Rough Splounder texture.png-31873c8632e286c77081877de1cad0de.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Blender/Splounder/SplounderFR_Rough Splounder texture.png"
-dest_files=["res://.godot/imported/SplounderFR_Rough Splounder texture.png-d18a58a671e24a1a0d10be42eaa3ce88.s3tc.ctex"]
+source_file="res://Blender/Splounder/Rough Splounder texture.png"
+dest_files=["res://.godot/imported/Rough Splounder texture.png-31873c8632e286c77081877de1cad0de.s3tc.ctex"]
 
 [params]
 
